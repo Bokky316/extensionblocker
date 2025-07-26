@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 커스텀 확장자 서비스 및 API 컨트롤러 구현&#10;&#10;- CustomExtensionService: 등록, 조회, 삭제 로직 구현&#10;  (중복 확장자 검사 및 최대 200개 제한 포함)&#10;- CustomExtensionServiceTest: 정상/중복/개수초과 케이스 단위 테스트 추가&#10;- CustomExtensionController: POST/GET/DELETE API 구성">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/controller/FixedExtensionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/FixedExtensionResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/service/FixedExtensionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/FixedExtensionServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/common/response/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/CustomExtensionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/CustomExtensionControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,16 +16,37 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/classes/com.bokky.extensionblocker.service.CustomExtensionServiceTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/CustomExtensionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/CustomExtensionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/FixedExtensionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/FixedExtensionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/FixedExtensionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/FixedExtensionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest$MockServiceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest$MockServiceConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/CustomExtensionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/CustomExtensionServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/FixedExtensionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/FixedExtensionServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/classes/com.bokky.extensionblocker.controller.FixedExtensionControllerTest.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/packages/com.bokky.extensionblocker.service.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/TEST-com.bokky.extensionblocker.service.CustomExtensionServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/packages/com.bokky.extensionblocker.controller.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/TEST-com.bokky.extensionblocker.controller.FixedExtensionControllerTest.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionController.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionService.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/compileTransaction/stash-dir/FixedExtensionControllerTest.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/entity/FixedExtensionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/entity/FixedExtensionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/controller/CustomExtensionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/controller/CustomExtensionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/controller/FixedExtensionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/controller/FixedExtensionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/FixedExtensionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/FixedExtensionResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/entity/FixedExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/entity/FixedExtension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/exception/MaxExtensionLimitException.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/exception/MaxExtensionLimitException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/repository/CustomExtensionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/repository/CustomExtensionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/service/CustomExtensionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/service/CustomExtensionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/service/FixedExtensionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/service/FixedExtensionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/CustomExtensionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/CustomExtensionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/FixedExtensionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/FixedExtensionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +65,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/backend">
           <activation />
         </task>
         <projects_view>
@@ -94,6 +116,9 @@
   "keyToString": {
     "Application.ExtensionBlockerApplication.executor": "Run",
     "Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor": "Run",
@@ -112,7 +137,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1516544",
-    "settings.editor.selected.configurable": "preferences.editor"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -127,8 +152,21 @@
       <recent name="C:\javaworks\workspace\springbootreact\extensionblocker" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.FixedExtensionControllerTest">
-    <configuration name="CustomExtensionServiceTest.커스텀확장자_정상등록" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.FixedExtensionServiceTest">
+    <configuration name="ExtensionBlockerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bokky.extensionblocker.ExtensionBlockerApplication" />
+      <module name="extensionblocker.backend.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bokky.extensionblocker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomExtensionControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -141,7 +179,7 @@
           <list>
             <option value=":backend:test" />
             <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.service.CustomExtensionServiceTest.커스텀확장자_정상등록&quot;" />
+            <option value="&quot;com.bokky.extensionblocker.controller.CustomExtensionControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +190,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CustomExtensionServiceTest.커스텀확장자_중복시_예외발생" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomExtensionServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -165,7 +203,7 @@
           <list>
             <option value=":backend:test" />
             <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.service.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생&quot;" />
+            <option value="&quot;com.bokky.extensionblocker.service.CustomExtensionServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -224,30 +262,6 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FixedExtensionControllerTest.고정_확장자_전체조회_성공" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":backend:test" />
-            <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.controller.FixedExtensionControllerTest.고정_확장자_전체조회_성공&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="FixedExtensionServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -274,11 +288,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.FixedExtensionControllerTest" />
         <item itemvalue="Gradle.FixedExtensionServiceTest" />
-        <item itemvalue="Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공" />
-        <item itemvalue="Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생" />
-        <item itemvalue="Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록" />
+        <item itemvalue="Gradle.CustomExtensionServiceTest" />
+        <item itemvalue="Gradle.FixedExtensionControllerTest" />
+        <item itemvalue="Gradle.CustomExtensionControllerTest" />
+        <item itemvalue="Application.ExtensionBlockerApplication" />
       </list>
     </recent_temporary>
   </component>

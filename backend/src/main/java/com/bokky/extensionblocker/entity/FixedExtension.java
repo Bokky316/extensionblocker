@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 /**
- * 고정 확장자 엔티티 (enum 기반 + checked 상태)
+ * 고정 확장자 Entity
  */
 @Entity
 @Getter
@@ -17,14 +17,23 @@ public class FixedExtension {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * 확장자 이름 (enum 기반)
+     */
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
     private FixedExtensionType name;
 
+    /**
+     * 체크 여부
+     */
     @Column(nullable = false)
     private boolean checked;
 
-    public void updateChecked(boolean checked) {
-        this.checked = checked;
+    /**
+     * checked 상태 토글 메서드
+     */
+    public void toggleChecked() {
+        this.checked = !this.checked;
     }
 }

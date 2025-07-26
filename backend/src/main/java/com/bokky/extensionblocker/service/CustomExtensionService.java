@@ -1,13 +1,13 @@
 package com.bokky.extensionblocker.service;
 
 import com.bokky.extensionblocker.dto.CustomExtensionRequest;
+import com.bokky.extensionblocker.dto.CustomExtensionResponse;
 import com.bokky.extensionblocker.entity.CustomExtension;
 import com.bokky.extensionblocker.exception.DuplicateExtensionException;
 import com.bokky.extensionblocker.exception.MaxExtensionLimitException;
 import com.bokky.extensionblocker.repository.CustomExtensionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,37 +15,46 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomExtensionService {
 
+    private static final int MAX_CUSTOM_EXTENSIONS = 200;
+
     private final CustomExtensionRepository customExtensionRepository;
 
-    private static final int MAX_CUSTOM_EXTENSION_COUNT = 200;
-
-    @Transactional
-    public CustomExtension addCustomExtension(CustomExtensionRequest request) {
+    /**
+     * 커스텀 확장자 추가
+     * - 중복 확인
+     * - 개수 제한 확인
+     * - 소문자 + trim 처리
+     */
+    public CustomExtensionResponse addCustomExtension(CustomExtensionRequest request) {
         String name = request.getName().trim().toLowerCase();
 
-        // 최대 개수 제한
-        if (customExtensionRepository.count() >= MAX_CUSTOM_EXTENSION_COUNT) {
-            throw new MaxExtensionLimitException("커스텀 확장자는 최대 200개까지 등록할 수 있습니다.");
+        if (customExtensionRepository.existsByName(name)) {
+            throw new DuplicateExtensionException(name);
         }
 
-        // 중복 체크
-        if (customExtensionRepository.findByName(name).isPresent()) {
-            throw new DuplicateExtensionException("이미 존재하는 확장자입니다: " + name);
+        if (customExtensionRepository.count() >= MAX_CUSTOM_EXTENSIONS) {
+            throw new MaxExtensionLimitException();
         }
 
-        CustomExtension extension = CustomExtension.builder()
+        CustomExtension entity = CustomExtension.builder()
                 .name(name)
                 .build();
 
-        return customExtensionRepository.save(extension);
+        return CustomExtensionResponse.fromEntity(customExtensionRepository.save(entity));
     }
 
-    @Transactional(readOnly = true)
-    public List<CustomExtension> getAllCustomExtensions() {
-        return customExtensionRepository.findAll();
+    /**
+     * 커스텀 확장자 전체 조회 (최신순)
+     */
+    public List<CustomExtensionResponse> getAllCustomExtensions() {
+        return customExtensionRepository.findAll().stream()
+                .map(CustomExtensionResponse::fromEntity)
+                .toList();
     }
 
-    @Transactional
+    /**
+     * 커스텀 확장자 삭제
+     */
     public void deleteCustomExtension(Long id) {
         customExtensionRepository.deleteById(id);
     }

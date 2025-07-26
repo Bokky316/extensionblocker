@@ -1,6 +1,7 @@
 package com.bokky.extensionblocker.service;
 
 import com.bokky.extensionblocker.dto.CustomExtensionRequest;
+import com.bokky.extensionblocker.dto.CustomExtensionResponse;
 import com.bokky.extensionblocker.entity.CustomExtension;
 import com.bokky.extensionblocker.exception.DuplicateExtensionException;
 import com.bokky.extensionblocker.exception.MaxExtensionLimitException;
@@ -14,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+/**
+ * [단위 테스트] CustomExtensionService
+ */
 class CustomExtensionServiceTest {
 
     private CustomExtensionService customExtensionService;
@@ -31,7 +35,7 @@ class CustomExtensionServiceTest {
         CustomExtensionRequest request = new CustomExtensionRequest(" sh ");
 
         when(customExtensionRepository.count()).thenReturn(100L);
-        when(customExtensionRepository.findByName("sh")).thenReturn(Optional.empty());
+        when(customExtensionRepository.existsByName("sh")).thenReturn(false);
         when(customExtensionRepository.save(any())).thenAnswer(invocation -> {
             CustomExtension ext = invocation.getArgument(0);
             return CustomExtension.builder()
@@ -41,10 +45,11 @@ class CustomExtensionServiceTest {
         });
 
         // when
-        CustomExtension result = customExtensionService.addCustomExtension(request);
+        CustomExtensionResponse result = customExtensionService.addCustomExtension(request);
 
         // then
         assertEquals("sh", result.getName());
+        assertEquals(1L, result.getId());
     }
 
     @Test
@@ -52,10 +57,8 @@ class CustomExtensionServiceTest {
         // given
         CustomExtensionRequest request = new CustomExtensionRequest("sh");
 
-        CustomExtension existing = CustomExtension.builder().name("sh").build();
-
         when(customExtensionRepository.count()).thenReturn(100L);
-        when(customExtensionRepository.findByName("sh")).thenReturn(Optional.of(existing));
+        when(customExtensionRepository.existsByName("sh")).thenReturn(true);
 
         // when & then
         assertThrows(DuplicateExtensionException.class, () ->

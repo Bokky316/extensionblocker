@@ -1,38 +1,37 @@
 package com.bokky.extensionblocker.controller;
 
+import com.bokky.extensionblocker.common.response.ApiResponse;
 import com.bokky.extensionblocker.dto.FixedExtensionResponse;
 import com.bokky.extensionblocker.service.FixedExtensionService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/extensions")
+@RequestMapping("/api/fixed")
 @RequiredArgsConstructor
 public class FixedExtensionController {
 
     private final FixedExtensionService fixedExtensionService;
 
     /**
-     * [GET] /api/extensions/fixed
-     * - 고정 확장자 목록 조회
+     * 고정 확장자 전체 조회 API
+     * - checked 여부 포함한 전체 목록 반환
      */
-    @GetMapping("/fixed")
-    public ResponseEntity<List<FixedExtensionResponse>> getFixedExtensions() {
-        return ResponseEntity.ok(fixedExtensionService.getAllFixedExtensions());
+    @GetMapping
+    public ApiResponse<List<FixedExtensionResponse>> getAllFixedExtensions() {
+        List<FixedExtensionResponse> fixedExtensions = fixedExtensionService.getAllFixedExtensions();
+        return ApiResponse.success("성공", fixedExtensions);
     }
 
     /**
-     * [PUT] /api/extensions/fixed/{id}?checked=true
-     * - 고정 확장자 체크 상태 변경
+     * 고정 확장자 상태 토글 API
+     * - 체크 상태를 반전 (checked ↔ unchecked)
      */
-    @PutMapping("/fixed/{id}")
-    public ResponseEntity<Void> updateChecked(
-            @PathVariable Long id,
-            @RequestParam boolean checked) {
-        fixedExtensionService.updateCheckedStatus(id, checked);
-        return ResponseEntity.ok().build();
+    @PutMapping("/{id}")
+    public ApiResponse<String> toggleCheckedStatus(@PathVariable Long id) {
+        fixedExtensionService.toggleCheckedStatus(id);
+        return ApiResponse.success("상태 변경 성공");
     }
 }

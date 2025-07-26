@@ -5,6 +5,7 @@ import com.bokky.extensionblocker.entity.FixedExtension;
 import com.bokky.extensionblocker.entity.FixedExtensionType;
 import com.bokky.extensionblocker.repository.FixedExtensionRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -15,7 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 /**
- * FixedExtensionService 단위 테스트
+ * [단위 테스트] FixedExtensionService
+ * - 고정 확장자 전체 조회
+ * - checked 상태 토글
  */
 class FixedExtensionServiceTest {
 
@@ -29,13 +32,14 @@ class FixedExtensionServiceTest {
     }
 
     @Test
-    void 고정확장자_전체조회() {
+    @DisplayName("고정 확장자 전체 조회 시 DTO 리스트로 변환되어 반환되어야 한다")
+    void getAllFixedExtensions_shouldReturnList() {
         // given
-        List<FixedExtension> mockList = Arrays.asList(
+        List<FixedExtension> mockEntities = Arrays.asList(
                 FixedExtension.builder().id(1L).name(FixedExtensionType.EXE).checked(true).build(),
-                FixedExtension.builder().id(2L).name(FixedExtensionType.BAT).checked(false).build()
+                FixedExtension.builder().id(2L).name(FixedExtensionType.SH).checked(false).build()
         );
-        when(fixedExtensionRepository.findAll()).thenReturn(mockList);
+        when(fixedExtensionRepository.findAll()).thenReturn(mockEntities);
 
         // when
         List<FixedExtensionResponse> result = fixedExtensionService.getAllFixedExtensions();
@@ -44,36 +48,59 @@ class FixedExtensionServiceTest {
         assertEquals(2, result.size());
         assertEquals("exe", result.get(0).getName());
         assertTrue(result.get(0).isChecked());
-        assertEquals("bat", result.get(1).getName());
+        assertEquals("sh", result.get(1).getName());
         assertFalse(result.get(1).isChecked());
     }
 
     @Test
-    void 고정확장자_체크상태_업데이트_정상() {
+    @DisplayName("checked 상태가 true일 경우 toggle 호출 시 false가 되어야 한다")
+    void toggleChecked_shouldFlipTrueToFalse() {
         // given
-        FixedExtension fixedExtension = FixedExtension.builder()
+        FixedExtension extension = FixedExtension.builder()
                 .id(1L)
-                .name(FixedExtensionType.SCR)
-                .checked(false)
+                .name(FixedExtensionType.EXE)
+                .checked(true)
                 .build();
-
-        when(fixedExtensionRepository.findById(1L)).thenReturn(Optional.of(fixedExtension));
+        when(fixedExtensionRepository.findById(1L)).thenReturn(Optional.of(extension));
 
         // when
-        fixedExtensionService.updateCheckedStatus(1L, true);
+        fixedExtensionService.toggleCheckedStatus(1L);
 
         // then
-        assertTrue(fixedExtension.isChecked());
-        verify(fixedExtensionRepository).save(fixedExtension);
+        assertFalse(extension.isChecked());
+        verify(fixedExtensionRepository).save(extension);
     }
 
     @Test
-    void 고정확장자_체크상태_업데이트_예외() {
+    @DisplayName("checked 상태가 false일 경우 toggle 호출 시 true가 되어야 한다")
+    void toggleChecked_shouldFlipFalseToTrue() {
         // given
-        when(fixedExtensionRepository.findById(99L)).thenReturn(Optional.empty());
+        FixedExtension extension = FixedExtension.builder()
+                .id(2L)
+                .name(FixedExtensionType.SH)
+                .checked(false)
+                .build();
+        when(fixedExtensionRepository.findById(2L)).thenReturn(Optional.of(extension));
+
+        // when
+        fixedExtensionService.toggleCheckedStatus(2L);
+
+        // then
+        assertTrue(extension.isChecked());
+        verify(fixedExtensionRepository).save(extension);
+    }
+
+    @Test
+    @DisplayName("존재하지 않는 확장자 ID로 toggle 시 IllegalArgumentException이 발생해야 한다")
+    void toggleChecked_shouldThrowExceptionIfNotFound() {
+        // given
+        when(fixedExtensionRepository.findById(999L)).thenReturn(Optional.empty());
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () ->
-                fixedExtensionService.updateCheckedStatus(99L, true));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> fixedExtensionService.toggleCheckedStatus(999L));
+
+        // 메시지 검증 추가
+        assertEquals("해당 확장자를 찾을 수 없습니다.", ex.getMessage());
     }
 }
