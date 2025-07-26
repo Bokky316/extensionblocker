@@ -4,67 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: springdoc 의존성 충돌로 Spring Boot 버전 3.2.5로 다운그레이드&#10;&#10;- springdoc-openapi-starter-webmvc-ui 2.3.0에서 spring-web의 ControllerAdviceBean 생성자 제거 이슈 발생&#10;- Spring Boot 3.4.1에서 해당 생성자가 제거되어 NoSuchMethodError 발생&#10;- 안정된 호환을 위해 Spring Boot 3.2.5, dependency-management 1.1.4로 버전 조정&#10;- gradle clean 및 의존성 재빌드로 정상 작동 확인 (Swagger UI 정상 출력)">
-      <change afterPath="$PROJECT_DIR$/backend/README.md" afterDir="false" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리">
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/extensionblocker.backend.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/common/response/ApiResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/common/response/ApiResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/config/DataInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/config/DataInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/CustomExtensionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/CustomExtensionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/FixedExtensionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/controller/FixedExtensionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/CustomExtensionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/CustomExtensionRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/CustomExtensionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/CustomExtensionResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/FixedExtensionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/dto/FixedExtensionResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/CustomExtension$CustomExtensionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/CustomExtension$CustomExtensionBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/CustomExtension.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/CustomExtension.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension$FixedExtensionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension$FixedExtensionBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/entity/FixedExtension.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/CustomExtensionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/CustomExtensionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/FixedExtensionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/com/bokky/extensionblocker/service/FixedExtensionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest$MockServiceConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest$MockServiceConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/FixedExtensionServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/test/com/bokky/extensionblocker/service/FixedExtensionServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/problems/problems-report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/classes/com.bokky.extensionblocker.service.CustomExtensionServiceTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/classes/com.bokky.extensionblocker.service.CustomExtensionServiceTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/packages/com.bokky.extensionblocker.service.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/packages/com.bokky.extensionblocker.service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/TEST-com.bokky.extensionblocker.service.CustomExtensionServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/TEST-com.bokky.extensionblocker.service.CustomExtensionServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/js/report.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/ApiResponse.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/CustomExtensionController.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/CustomExtensionRequest.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/CustomExtensionResponse$CustomExtensionResponseBuilder.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/CustomExtensionResponse.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/CustomExtensionService.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionController.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionResponse$FixedExtensionResponseBuilder.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionResponse.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/compileTransaction/stash-dir/FixedExtensionService.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/compileTransaction/stash-dir/CustomExtensionControllerTest$MockServiceConfig.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/compileTransaction/stash-dir/CustomExtensionControllerTest.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/compileTransaction/stash-dir/CustomExtensionServiceTest.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/CustomExtensionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/CustomExtensionRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/CustomExtensionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/CustomExtensionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/FixedExtensionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/dto/FixedExtensionResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/controller/FixedExtensionControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/FixedExtensionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bokky/extensionblocker/service/FixedExtensionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,36 +79,37 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ExtensionBlockerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.extensionblocker.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1516544&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ExtensionBlockerApplication.executor": "Run",
+    "Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor": "Run",
+    "Gradle.FixedExtensionServiceTest.executor": "Run",
+    "Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor": "Run",
+    "Gradle.backend [test].executor": "Run",
+    "Gradle.extensionblocker.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle",
+    "onboarding.tips.debug.path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1516544",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.bokky.extensionblocker" />
@@ -181,7 +136,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CustomExtensionServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -194,7 +149,7 @@
           <list>
             <option value=":backend:test" />
             <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.service.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬&quot;" />
+            <option value="&quot;com.bokky.extensionblocker.service.CustomExtensionServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -229,7 +184,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FixedExtensionServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -242,7 +197,7 @@
           <list>
             <option value=":backend:test" />
             <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.controller.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess&quot;" />
+            <option value="&quot;com.bokky.extensionblocker.service.FixedExtensionServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -278,10 +233,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.backend [test]" />
-        <item itemvalue="Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess" />
-        <item itemvalue="Gradle.FixedExtensionControllerTest" />
         <item itemvalue="Application.ExtensionBlockerApplication" />
-        <item itemvalue="Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬" />
+        <item itemvalue="Gradle.FixedExtensionServiceTest" />
+        <item itemvalue="Gradle.CustomExtensionServiceTest" />
+        <item itemvalue="Gradle.FixedExtensionControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -334,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753510870115</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리">
+      <option name="closed" value="true" />
+      <created>1753519922085</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753519922085</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -347,6 +310,7 @@
     <MESSAGE value="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증" />
     <MESSAGE value="feat: Swagger 문서화 어노테이션 적용 (Controller + DTO)&#10;&#10;- CustomExtensionController, FixedExtensionController에 @Tag, @Operation, @ApiResponse 추가&#10;- CustomExtensionRequest, CustomExtensionResponse, FixedExtensionResponse DTO에 @Schema 적용&#10;- FixedExtensionResponse.from(FixedExtension), CustomExtensionResponse.fromEntity(CustomExtension) 정적 팩토리 메서드 추가&#10;- 기존 구조, 반환 형식, 서비스 코드 흐름은 전혀 변경하지 않고 Swagger 문서화만 적용" />
     <MESSAGE value="fix: springdoc 의존성 충돌로 Spring Boot 버전 3.2.5로 다운그레이드&#10;&#10;- springdoc-openapi-starter-webmvc-ui 2.3.0에서 spring-web의 ControllerAdviceBean 생성자 제거 이슈 발생&#10;- Spring Boot 3.4.1에서 해당 생성자가 제거되어 NoSuchMethodError 발생&#10;- 안정된 호환을 위해 Spring Boot 3.2.5, dependency-management 1.1.4로 버전 조정&#10;- gradle clean 및 의존성 재빌드로 정상 작동 확인 (Swagger UI 정상 출력)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: springdoc 의존성 충돌로 Spring Boot 버전 3.2.5로 다운그레이드&#10;&#10;- springdoc-openapi-starter-webmvc-ui 2.3.0에서 spring-web의 ControllerAdviceBean 생성자 제거 이슈 발생&#10;- Spring Boot 3.4.1에서 해당 생성자가 제거되어 NoSuchMethodError 발생&#10;- 안정된 호환을 위해 Spring Boot 3.2.5, dependency-management 1.1.4로 버전 조정&#10;- gradle clean 및 의존성 재빌드로 정상 작동 확인 (Swagger UI 정상 출력)" />
+    <MESSAGE value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
   </component>
 </project>

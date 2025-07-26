@@ -27,7 +27,7 @@ Spring Boot 기반으로 구현한 **파일 확장자 차단 백엔드 서버**�
 | Language | Java 17 |
 | Framework | Spring Boot 3 |
 | ORM | Spring Data JPA |
-| DB | H2 (in-memory) |
+| DB | H2 (in-memory, 테스트용) / MariaDB (로컬 실행용) |
 | Docs | springdoc-openapi (Swagger) |
 | Build Tool | Gradle |
 | Test | JUnit 5, Mockito |
@@ -46,6 +46,9 @@ cd extensionblocker/backend
 ````
 
 > Swagger 접속: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+※ 기본 DB는 로컬 MariaDB 사용.
+※ 테스트 실행 시에는 자동으로 H2(in-memory) DB로 전환됩니다.
 
 ---
 
@@ -85,6 +88,9 @@ cd extensionblocker/backend
 ./gradlew test
 ```
 
+> 테스트 실행 시 H2 DB(in-memory)가 자동 사용되며,
+> MariaDB 연결 없이도 전체 테스트가 통과됩니다.
+
 ---
 
 ## 📂 프로젝트 구조 요약
@@ -104,11 +110,12 @@ backend
 
 ---
 
-## 🗂 기타 사항
+## 🛠 고려한 설계 사항
 
 * 고정 확장자: `FixedExtensionType` enum + `DataInitializer`로 초기 로딩
-* 커스텀 확장자: 최대 200개 제한, DB 내 중복 방지(lowercase 저장)
+* 커스텀 확장자: 최대 200개 제한, DB 내 중복 방지 (lowercase 저장)
 * 예외 처리: `@Valid`, `@ControllerAdvice` 기반 전역 예외 처리
+* 응답 구조 통일: `ApiResponse<T>`로 성공/에러 모두 통일
 
 ---
 
@@ -116,4 +123,3 @@ backend
 
 본 프로젝트는 면접용 과제로 구현되었으며,
 **구현 범위 명확성 + 안정성 + 유지보수성**을 고려해 구조화했습니다.
-
