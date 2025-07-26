@@ -1,21 +1,30 @@
 package com.bokky.extensionblocker.dto;
 
 import com.bokky.extensionblocker.entity.FixedExtension;
-import lombok.Builder;
+import com.bokky.extensionblocker.entity.FixedExtensionType;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@Builder
+@AllArgsConstructor
+@Schema(description = "고정 확장자 응답 DTO")
 public class FixedExtensionResponse {
+
+    @Schema(description = "고정 확장자 ID", example = "1")
     private Long id;
-    private String name;
+
+    @Schema(description = "고정 확장자명", example = "EXE")
+    private FixedExtensionType name;
+
+    @Schema(description = "차단 여부", example = "true")
     private boolean checked;
 
     public static FixedExtensionResponse from(FixedExtension entity) {
-        return FixedExtensionResponse.builder()
-                .id(entity.getId())
-                .name(entity.getName().name().toLowerCase())
-                .checked(entity.isChecked())
-                .build();
+        return new FixedExtensionResponse(
+                entity.getId(),
+                entity.getName(),
+                entity.isChecked()
+        );
     }
 }

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 확장자 차단 기능 전체 구현 및 builder 패턴 기반 DTO 구조 정리&#10;&#10;- CustomExtensionController, FixedExtensionController 기능 완성&#10;- 요청/응답 DTO 구분 및 Custom/Fixed Response DTO에 builder 패턴 적용&#10;- CustomExtensionControllerTest, FixedExtensionControllerTest 테스트 코드 전면 작성&#10;  - 모든 테스트 객체 생성 방식 builder()로 통일&#10;- 커스텀 확장자 중복 및 최대 개수 초과 예외 처리 구현&#10;  - DuplicateExtensionException&#10;  - MaxExtensionLimitException&#10;- GlobalExceptionHandler를 통해 공통 에러 응답 구조화&#10;- Entity, Repository, Service 계층 기본 구현 및 연결 완료&#10;- 응답 포맷은 ApiResponse&lt;T&gt;로 통일" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bokky/extensionblocker/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +84,7 @@
     "Gradle.CustomExtensionControllerTest.executor": "Run",
     "Gradle.CustomExtensionServiceTest.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor": "Run",
     "Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor": "Run",
     "Gradle.FixedExtensionControllerTest.executor": "Run",
@@ -109,30 +117,19 @@
       <recent name="C:\javaworks\workspace\springbootreact\extensionblocker" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬">
-    <configuration name="CustomExtensionControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":backend:test" />
-            <option value="--tests" />
-            <option value="&quot;com.bokky.extensionblocker.controller.CustomExtensionControllerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
+  <component name="RunManager" selected="Application.ExtensionBlockerApplication">
+    <configuration name="ExtensionBlockerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bokky.extensionblocker.ExtensionBlockerApplication" />
+      <module name="extensionblocker.backend.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bokky.extensionblocker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="CustomExtensionServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -256,11 +253,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ExtensionBlockerApplication" />
         <item itemvalue="Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬" />
         <item itemvalue="Gradle.FixedExtensionServiceTest" />
         <item itemvalue="Gradle.CustomExtensionServiceTest" />
         <item itemvalue="Gradle.FixedExtensionControllerTest" />
-        <item itemvalue="Gradle.CustomExtensionControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753510481785</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증">
+      <option name="closed" value="true" />
+      <created>1753510870115</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753510870115</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -315,6 +320,7 @@
     <MESSAGE value="feat: 커스텀 확장자 엔티티 및 레포지토리 구현&#10;&#10;- CustomExtension 엔티티 생성 (name, createdAt)&#10;- 중복 방지를 위한 name 유니크 제약&#10;- 생성일 자동 저장용 @CreationTimestamp 사용&#10;- CustomExtensionRepository 인터페이스 구현" />
     <MESSAGE value="커밋 feat: 커스텀 확장자 요청 DTO 및 예외 처리 구조 구현&#10;&#10;- 확장자 등록용 CustomExtensionRequest DTO 생성 (@Valid 적용)&#10;- 중복 및 최대 개수 초과 예외 클래스 추가&#10;- GlobalExceptionHandler 통해 공통 에러 응답 구조화" />
     <MESSAGE value="feat: 확장자 차단 기능 전체 구현 및 builder 패턴 기반 DTO 구조 정리&#10;&#10;- CustomExtensionController, FixedExtensionController 기능 완성&#10;- 요청/응답 DTO 구분 및 Custom/Fixed Response DTO에 builder 패턴 적용&#10;- CustomExtensionControllerTest, FixedExtensionControllerTest 테스트 코드 전면 작성&#10;  - 모든 테스트 객체 생성 방식 builder()로 통일&#10;- 커스텀 확장자 중복 및 최대 개수 초과 예외 처리 구현&#10;  - DuplicateExtensionException&#10;  - MaxExtensionLimitException&#10;- GlobalExceptionHandler를 통해 공통 에러 응답 구조화&#10;- Entity, Repository, Service 계층 기본 구현 및 연결 완료&#10;- 응답 포맷은 ApiResponse&lt;T&gt;로 통일" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 확장자 차단 기능 전체 구현 및 builder 패턴 기반 DTO 구조 정리&#10;&#10;- CustomExtensionController, FixedExtensionController 기능 완성&#10;- 요청/응답 DTO 구분 및 Custom/Fixed Response DTO에 builder 패턴 적용&#10;- CustomExtensionControllerTest, FixedExtensionControllerTest 테스트 코드 전면 작성&#10;  - 모든 테스트 객체 생성 방식 builder()로 통일&#10;- 커스텀 확장자 중복 및 최대 개수 초과 예외 처리 구현&#10;  - DuplicateExtensionException&#10;  - MaxExtensionLimitException&#10;- GlobalExceptionHandler를 통해 공통 에러 응답 구조화&#10;- Entity, Repository, Service 계층 기본 구현 및 연결 완료&#10;- 응답 포맷은 ApiResponse&lt;T&gt;로 통일" />
+    <MESSAGE value="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증" />
   </component>
 </project>
