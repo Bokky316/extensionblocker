@@ -1,5 +1,6 @@
-import { api, ApiResponse } from './api'
-import { FixedExtension, CustomExtension } from '../types'
+import { api } from './api'
+import type { ApiResponse } from './api'
+import type { FixedExtension, CustomExtension } from '../types'
 
 // 🔹 1. 고정 확장자 조회
 export const getFixedExtensions = async (): Promise<FixedExtension[]> => {

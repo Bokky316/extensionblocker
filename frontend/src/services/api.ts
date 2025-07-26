@@ -29,7 +29,7 @@ export const api = axios.create({
  *   data: T
  * }
  */
-export interface ApiResponse<T> {
+export type ApiResponse<T> = {
   code: number
   message: string
   data: T
