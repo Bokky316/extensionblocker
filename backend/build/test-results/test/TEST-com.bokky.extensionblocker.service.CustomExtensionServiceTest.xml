@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bokky.extensionblocker.service.CustomExtensionServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-25T17:23:13" hostname="BOKKYGALAXY" time="1.262">
-  <properties/>
-  <testcase name="커스텀확장자_개수초과시_예외발생()" classname="com.bokky.extensionblocker.service.CustomExtensionServiceTest" time="1.262"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
