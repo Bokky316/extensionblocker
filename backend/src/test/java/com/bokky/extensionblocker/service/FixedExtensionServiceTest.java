@@ -46,9 +46,10 @@ class FixedExtensionServiceTest {
 
         // then
         assertEquals(2, result.size());
-        assertEquals("exe", result.get(0).getName());
+        assertEquals(FixedExtensionType.EXE, result.get(0).getName());
         assertTrue(result.get(0).isChecked());
-        assertEquals("sh", result.get(1).getName());
+
+        assertEquals(FixedExtensionType.SH, result.get(1).getName());
         assertFalse(result.get(1).isChecked());
     }
 
@@ -100,7 +101,6 @@ class FixedExtensionServiceTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
                 () -> fixedExtensionService.toggleCheckedStatus(999L));
 
-        // 메시지 검증 추가
         assertEquals("해당 확장자를 찾을 수 없습니다.", ex.getMessage());
     }
 }

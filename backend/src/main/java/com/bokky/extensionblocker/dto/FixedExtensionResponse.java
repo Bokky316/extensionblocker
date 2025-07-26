@@ -4,10 +4,12 @@ import com.bokky.extensionblocker.entity.FixedExtension;
 import com.bokky.extensionblocker.entity.FixedExtensionType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+@Builder
 @Schema(description = "고정 확장자 응답 DTO")
 public class FixedExtensionResponse {
 

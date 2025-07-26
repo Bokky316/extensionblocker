@@ -3,12 +3,14 @@ package com.bokky.extensionblocker.dto;
 import com.bokky.extensionblocker.entity.CustomExtension;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
+@Builder
 @Schema(description = "커스텀 확장자 응답 DTO")
 public class CustomExtensionResponse {
 

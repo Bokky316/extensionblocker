@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bokky.extensionblocker.service.CustomExtensionServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-26T06:20:27" hostname="BOKKYGALAXY" time="1.335">
-  <properties/>
-  <testcase name="커스텀확장자_생성일기준_최신순_정렬()" classname="com.bokky.extensionblocker.service.CustomExtensionServiceTest" time="1.335"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
