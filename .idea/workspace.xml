@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정">
+      <change afterPath="$PROJECT_DIR$/frontend/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/backend/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/css/base-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/reports/tests/test/js/report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/test-results/test/binary/output.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753519922085</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정">
+      <option name="closed" value="true" />
+      <created>1753520438551</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753520438551</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -311,6 +308,7 @@
     <MESSAGE value="feat: Swagger 문서화 어노테이션 적용 (Controller + DTO)&#10;&#10;- CustomExtensionController, FixedExtensionController에 @Tag, @Operation, @ApiResponse 추가&#10;- CustomExtensionRequest, CustomExtensionResponse, FixedExtensionResponse DTO에 @Schema 적용&#10;- FixedExtensionResponse.from(FixedExtension), CustomExtensionResponse.fromEntity(CustomExtension) 정적 팩토리 메서드 추가&#10;- 기존 구조, 반환 형식, 서비스 코드 흐름은 전혀 변경하지 않고 Swagger 문서화만 적용" />
     <MESSAGE value="fix: springdoc 의존성 충돌로 Spring Boot 버전 3.2.5로 다운그레이드&#10;&#10;- springdoc-openapi-starter-webmvc-ui 2.3.0에서 spring-web의 ControllerAdviceBean 생성자 제거 이슈 발생&#10;- Spring Boot 3.4.1에서 해당 생성자가 제거되어 NoSuchMethodError 발생&#10;- 안정된 호환을 위해 Spring Boot 3.2.5, dependency-management 1.1.4로 버전 조정&#10;- gradle clean 및 의존성 재빌드로 정상 작동 확인 (Swagger UI 정상 출력)" />
     <MESSAGE value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
+    <MESSAGE value="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정" />
   </component>
 </project>
