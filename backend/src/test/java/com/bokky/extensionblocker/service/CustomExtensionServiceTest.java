@@ -9,6 +9,8 @@ import com.bokky.extensionblocker.repository.CustomExtensionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -75,5 +77,32 @@ class CustomExtensionServiceTest {
         // when & then
         assertThrows(MaxExtensionLimitException.class, () ->
                 customExtensionService.addCustomExtension(request));
+    }
+
+    @Test
+    void 커스텀확장자_생성일기준_최신순_정렬() {
+        // given
+        CustomExtension ext1 = CustomExtension.builder()
+                .id(1L)
+                .name("exe")
+                .createdAt(LocalDateTime.now().minusDays(1))
+                .build();
+
+        CustomExtension ext2 = CustomExtension.builder()
+                .id(2L)
+                .name("sh")
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        when(customExtensionRepository.findAllByOrderByCreatedAtDesc())
+                .thenReturn(List.of(ext2, ext1));
+
+        // when
+        List<CustomExtensionResponse> result = customExtensionService.getAllCustomExtensions();
+
+        // then
+        assertEquals(2, result.size());
+        assertEquals("sh", result.get(0).getName());
+        assertEquals("exe", result.get(1).getName());
     }
 }

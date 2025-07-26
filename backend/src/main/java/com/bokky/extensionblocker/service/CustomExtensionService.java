@@ -44,10 +44,10 @@ public class CustomExtensionService {
     }
 
     /**
-     * 커스텀 확장자 전체 조회 (최신순)
+     * 커스텀 확장자 전체 조회 (생성일 기준 최신순)
      */
     public List<CustomExtensionResponse> getAllCustomExtensions() {
-        return customExtensionRepository.findAll().stream()
+        return customExtensionRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(CustomExtensionResponse::fromEntity)
                 .toList();
     }
