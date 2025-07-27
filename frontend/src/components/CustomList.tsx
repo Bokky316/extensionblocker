@@ -1,8 +1,10 @@
 import { useCustomExtensions } from '@/hooks/useCustomExtensions'
 import { Pill } from '@/components/common/Pill'
+import type { CustomExtension } from '@/types'
 
 export const CustomList = () => {
   const { customList, loading, removeExtension } = useCustomExtensions()
+  const list = customList as CustomExtension[]
 
   if (loading) return <p>로딩 중...</p>
 
