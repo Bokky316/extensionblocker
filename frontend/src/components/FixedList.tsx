@@ -2,7 +2,7 @@ import { useFixedExtensions } from '@/hooks/useFixedExtensions'
 
 export const FixedList = () => {
   const { fixedList, loading, error, toggle } = useFixedExtensions()
-  const list = fixedList ?? []
+  const list = Array.isArray(fixedList) ? fixedList : []
 
   if (loading) return <p>로딩 중...</p>
   if (error) return <p>에러 발생: {error}</p>

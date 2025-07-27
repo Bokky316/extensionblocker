@@ -3,7 +3,7 @@ import { Pill } from '@/components/common/Pill'
 
 export const CustomList = () => {
   const { customList, loading, removeExtension } = useCustomExtensions()
-  const list = customList ?? []
+  const list = Array.isArray(customList) ? customList : []
 
   if (loading) return <p>로딩 중...</p>
 
