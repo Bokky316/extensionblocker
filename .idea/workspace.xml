@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: api 경로" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,14 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753455693112</updated>
-    </task>
-    <task id="LOCAL-00003" summary="커밋 feat: 커스텀 확장자 요청 DTO 및 예외 처리 구조 구현&#10;&#10;- 확장자 등록용 CustomExtensionRequest DTO 생성 (@Valid 적용)&#10;- 중복 및 최대 개수 초과 예외 클래스 추가&#10;- GlobalExceptionHandler 통해 공통 에러 응답 구조화">
-      <option name="closed" value="true" />
-      <created>1753464094354</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1753464094354</updated>
     </task>
     <task id="LOCAL-00004" summary="feat: 확장자 차단 기능 전체 구현 및 builder 패턴 기반 DTO 구조 정리&#10;&#10;- CustomExtensionController, FixedExtensionController 기능 완성&#10;- 요청/응답 DTO 구분 및 Custom/Fixed Response DTO에 builder 패턴 적용&#10;- CustomExtensionControllerTest, FixedExtensionControllerTest 테스트 코드 전면 작성&#10;  - 모든 테스트 객체 생성 방식 builder()로 통일&#10;- 커스텀 확장자 중복 및 최대 개수 초과 예외 처리 구현&#10;  - DuplicateExtensionException&#10;  - MaxExtensionLimitException&#10;- GlobalExceptionHandler를 통해 공통 에러 응답 구조화&#10;- Entity, Repository, Service 계층 기본 구현 및 연결 완료&#10;- 응답 포맷은 ApiResponse&lt;T&gt;로 통일">
       <option name="closed" value="true" />
@@ -638,11 +630,18 @@
       <option name="project" value="LOCAL" />
       <updated>1753618713902</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지">
+      <option name="closed" value="true" />
+      <created>1753619026034</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1753619026034</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: springdoc 의존성 충돌로 Spring Boot 버전 3.2.5로 다운그레이드&#10;&#10;- springdoc-openapi-starter-webmvc-ui 2.3.0에서 spring-web의 ControllerAdviceBean 생성자 제거 이슈 발생&#10;- Spring Boot 3.4.1에서 해당 생성자가 제거되어 NoSuchMethodError 발생&#10;- 안정된 호환을 위해 Spring Boot 3.2.5, dependency-management 1.1.4로 버전 조정&#10;- gradle clean 및 의존성 재빌드로 정상 작동 확인 (Swagger UI 정상 출력)" />
     <MESSAGE value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
     <MESSAGE value="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정" />
     <MESSAGE value="feat: 프론트엔드 초기 세팅 및 API 연동 구조 구현&#10;&#10;- Vite + React + TypeScript 기반 프로젝트 생성&#10;- Tailwind CSS 설치 및 적용 (index.css 정리)&#10;- 개발 서버 포트 3000번으로 설정 (vite.config.ts)&#10;- axios 인스턴스(api.ts) 생성 및 환경변수 기반 baseURL 분리&#10;- 확장자 API 요청 함수 정의 (extensionService.ts)&#10;- 고정/커스텀 확장자 타입 정의 (types/index.ts)&#10;- 고정/커스텀 확장자 전용 커스텀 훅 구현 (useFixedExtensions, useCustomExtensions)" />
@@ -667,6 +666,7 @@
     <MESSAGE value="fix: list.length 접근 오C류 방지 위한 조건부 렌더링 처리" />
     <MESSAGE value="fix: map 접근 오류 방지" />
     <MESSAGE value="fix: api 경로" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: api 경로" />
+    <MESSAGE value="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
   </component>
 </project>
