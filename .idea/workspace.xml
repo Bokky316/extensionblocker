@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가">
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useCustomExtensions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useCustomExtensions.ts" afterDir="false" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix:">
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -528,11 +528,18 @@
       <option name="project" value="LOCAL" />
       <updated>1753615003964</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix:">
+      <option name="closed" value="true" />
+      <created>1753615275237</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1753615275237</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="FIRST COMMIT" />
     <MESSAGE value="feat: 고정 확장자 enum, 엔티티, 초기 seed 로딩 기능 추가&#10;&#10;- FixedExtensionType enum 정의 (EXE, SH 등)&#10;- FixedExtension 엔티티 생성 (checked 상태 포함)&#10;- CommandLineRunner 기반 seed 자동 주입 구성&#10;- FixedExtensionRepository 인터페이스 생성" />
     <MESSAGE value="." />
     <MESSAGE value="feat: 커스텀 확장자 엔티티 및 레포지토리 구현&#10;&#10;- CustomExtension 엔티티 생성 (name, createdAt)&#10;- 중복 방지를 위한 name 유니크 제약&#10;- 생성일 자동 저장용 @CreationTimestamp 사용&#10;- CustomExtensionRepository 인터페이스 구현" />
@@ -557,6 +564,7 @@
     <MESSAGE value="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
     <MESSAGE value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
+    <MESSAGE value="fix:" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:" />
   </component>
 </project>

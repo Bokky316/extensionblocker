@@ -8,9 +8,9 @@ export const getFixedExtensions = async (): Promise<FixedExtension[]> => {
   return res.data.data
 }
 
-export const toggleFixedExtension = async (id: number): Promise<number> => {
-  await axios.put(`${API}/api/fixed/${id}`)
-  return id
+export const toggleFixedExtension = async (id: number): Promise<FixedExtension> => {
+  const res = await axios.put(`${API}/api/fixed/${id}`)
+  return res.data.data // ✅ FixedExtension 전체 객체 반환
 }
 
 export const getCustomExtensions = async (): Promise<CustomExtension[]> => {
