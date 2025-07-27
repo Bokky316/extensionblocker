@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix:">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,22 +247,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753455693112</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat: 확장자 차단 기능 전체 구현 및 builder 패턴 기반 DTO 구조 정리&#10;&#10;- CustomExtensionController, FixedExtensionController 기능 완성&#10;- 요청/응답 DTO 구분 및 Custom/Fixed Response DTO에 builder 패턴 적용&#10;- CustomExtensionControllerTest, FixedExtensionControllerTest 테스트 코드 전면 작성&#10;  - 모든 테스트 객체 생성 방식 builder()로 통일&#10;- 커스텀 확장자 중복 및 최대 개수 초과 예외 처리 구현&#10;  - DuplicateExtensionException&#10;  - MaxExtensionLimitException&#10;- GlobalExceptionHandler를 통해 공통 에러 응답 구조화&#10;- Entity, Repository, Service 계층 기본 구현 및 연결 완료&#10;- 응답 포맷은 ApiResponse&lt;T&gt;로 통일">
-      <option name="closed" value="true" />
-      <created>1753510481785</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1753510481785</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: 커스텀 확장자 목록 정렬 기능 및 테스트 추가&#10;&#10;- getAllCustomExtensions()에서 findAll → findAllByOrderByCreatedAtDesc()로 변경&#10;- createdAt 기준 내림차순 정렬 로직 반영 (최신 등록 확장자가 먼저 노출되도록 처리)&#10;- 정렬 결과를 검증하는 단위 테스트 추가&#10;  - MockRepository에서 createdAt 값을 다르게 설정해 실제 순서 검증">
-      <option name="closed" value="true" />
-      <created>1753510870115</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1753510870115</updated>
     </task>
     <task id="LOCAL-00006" summary="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리">
       <option name="closed" value="true" />
@@ -638,7 +624,23 @@
       <option name="project" value="LOCAL" />
       <updated>1753619026034</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지">
+      <option name="closed" value="true" />
+      <created>1753619429763</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1753619429763</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix:">
+      <option name="closed" value="true" />
+      <created>1753619602337</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1753619602337</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -658,7 +660,6 @@
     <MESSAGE value="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
     <MESSAGE value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
-    <MESSAGE value="fix:" />
     <MESSAGE value="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료" />
     <MESSAGE value="fix: 확장자 목록 length 접근 시 undefined 오류 방지 처리&#10;- customList, fixedList에 기본값 [] 적용&#10;- 런타임 length 접근 안전성 확보" />
     <MESSAGE value="fix: list.map undefined 오류 방지 위해 컴포넌트 조건부 list 처리 추가" />
@@ -667,6 +668,7 @@
     <MESSAGE value="fix: map 접근 오류 방지" />
     <MESSAGE value="fix: api 경로" />
     <MESSAGE value="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
+    <MESSAGE value="fix:" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:" />
   </component>
 </project>
