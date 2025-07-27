@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="Merge remote-tracking branch 'origin/master'" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts">
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,37 +78,37 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ExtensionBlockerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FixedExtensionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.backend [test].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.extensionblocker.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1516544&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ExtensionBlockerApplication.executor": "Run",
+    "Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor": "Run",
+    "Gradle.CustomExtensionControllerTest.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor": "Run",
+    "Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor": "Run",
+    "Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor": "Run",
+    "Gradle.FixedExtensionServiceTest.executor": "Run",
+    "Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor": "Run",
+    "Gradle.backend [test].executor": "Run",
+    "Gradle.extensionblocker.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle",
+    "onboarding.tips.debug.path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1516544",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.bokky.extensionblocker" />
@@ -486,7 +488,39 @@
       <option name="project" value="LOCAL" />
       <updated>1753613750129</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결">
+      <option name="closed" value="true" />
+      <created>1753613816412</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1753613816412</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결">
+      <option name="closed" value="true" />
+      <created>1753613915521</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1753613915521</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts">
+      <option name="closed" value="true" />
+      <created>1753613997671</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1753613997672</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts">
+      <option name="closed" value="true" />
+      <created>1753614103048</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1753614103048</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -512,6 +546,8 @@
     <MESSAGE value="배포세팅" />
     <MESSAGE value="chore: tsconfig 경로 별칭 설정 및 모듈 경로 오류 해결&#10;&#10;- tsconfig.json에 baseUrl 및 paths 설정 추가 (@ -&gt; src/)&#10;- 기존 import 경로들을 @ 기반으로 통일&#10;- 타입 및 상태 관리 모듈 경로 오류 해결 (useAppSelector 등)&#10;- CustomList, FixedList 등 any/unknown 타입 명시적으로 해결" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
   </component>
 </project>
