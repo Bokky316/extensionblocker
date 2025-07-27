@@ -3,9 +3,9 @@ import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import type { RootState } from '@/store'
 import {
-  fetchCustomExtensions,
-  createCustomExtension,
-  removeCustomExtension,
+  fetchCustomExtensionsThunk,
+  createCustomExtensionThunk,
+  removeCustomExtensionThunk,
 } from '@/store/slices/customExtensionsSlice'
 
 export const useCustomExtensions = () => {
@@ -16,19 +16,19 @@ export const useCustomExtensions = () => {
   const error = useAppSelector((state: RootState) => state.customExtensions.error)
 
   const fetch = useCallback(() => {
-    dispatch(fetchCustomExtensions())
+    dispatch(fetchCustomExtensionsThunk())
   }, [dispatch])
 
   const addExtension = useCallback(
     async (name: string) => {
-      return await dispatch(createCustomExtension(name)).unwrap()
+      return await dispatch(createCustomExtensionThunk(name)).unwrap()
     },
     [dispatch]
   )
 
   const removeExtension = useCallback(
     async (id: number) => {
-      return await dispatch(removeCustomExtension(id)).unwrap()
+      return await dispatch(removeCustomExtensionThunk(id)).unwrap()
     },
     [dispatch]
   )

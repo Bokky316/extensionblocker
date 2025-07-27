@@ -18,15 +18,17 @@ const initialState: CustomExtensionState = {
   error: null,
 }
 
-export const fetchCustomExtensions = createAsyncThunk(
+export const fetchCustomExtensionsThunk = createAsyncThunk(
   'customExtensions/fetchAll',
-  async () => await getCustomExtensions()
+  async () => {
+    return await getCustomExtensions()
+  }
 )
 
-export const createCustomExtension = createAsyncThunk<
+export const createCustomExtensionThunk = createAsyncThunk<
   CustomExtension,
   string,
-  { rejectValue: any }
+  { rejectValue: { code: number; message: string } }
 >('customExtensions/create', async (name, { rejectWithValue }) => {
   try {
     return await addCustomExtension(name)
@@ -38,9 +40,9 @@ export const createCustomExtension = createAsyncThunk<
   }
 })
 
-export const removeCustomExtension = createAsyncThunk(
+export const removeCustomExtensionThunk = createAsyncThunk<number, number>(
   'customExtensions/remove',
-  async (id: number) => {
+  async (id) => {
     await deleteCustomExtension(id)
     return id
   }
@@ -52,25 +54,25 @@ const customExtensionsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCustomExtensions.pending, (state) => {
+      .addCase(fetchCustomExtensionsThunk.pending, (state) => {
         state.loading = true
         state.error = null
       })
-      .addCase(fetchCustomExtensions.fulfilled, (state, action) => {
+      .addCase(fetchCustomExtensionsThunk.fulfilled, (state, action) => {
         state.loading = false
         state.list = action.payload ?? []
       })
-      .addCase(fetchCustomExtensions.rejected, (state, action) => {
+      .addCase(fetchCustomExtensionsThunk.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message ?? '에러 발생'
       })
-      .addCase(createCustomExtension.fulfilled, (state, action) => {
+      .addCase(createCustomExtensionThunk.fulfilled, (state, action) => {
         state.list = [action.payload, ...state.list]
       })
-      .addCase(createCustomExtension.rejected, (state, action) => {
+      .addCase(createCustomExtensionThunk.rejected, (state, action) => {
         state.error = action.payload?.message ?? '등록 실패'
       })
-      .addCase(removeCustomExtension.fulfilled, (state, action) => {
+      .addCase(removeCustomExtensionThunk.fulfilled, (state, action) => {
         state.list = state.list.filter((e) => e.id !== action.payload)
       })
   },

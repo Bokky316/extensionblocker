@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가">
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useCustomExtensions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useCustomExtensions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -520,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753614103048</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가">
+      <option name="closed" value="true" />
+      <created>1753615003963</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1753615003964</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -548,6 +556,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="fix: toggleFixed thunk 반환을 FixedExtension 전체 객체로 수정하여 타입 오류 해결" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
+    <MESSAGE value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
   </component>
 </project>
