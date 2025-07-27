@@ -18,11 +18,13 @@ export const useFixedExtensions = () => {
     dispatch(fetchFixedExtensions())
   }, [dispatch])
 
-  // ✅ unwrap 사용해서 fulfilled 강제 기다리기
   const toggle = useCallback(
     async (id: number) => {
       try {
-        await dispatch(toggleFixed(id)).unwrap()
+        const result = await dispatch(toggleFixed(id)).unwrap()
+        if (!result) {
+          console.warn(`[toggle] ID ${id} 응답이 null이므로 상태 변경 생략`)
+        }
       } catch (err) {
         console.error('토글 실패:', err)
       }
