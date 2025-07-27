@@ -23,10 +23,20 @@ export const fetchCustomExtensions = createAsyncThunk(
   async () => await getCustomExtensions()
 )
 
-export const createCustomExtension = createAsyncThunk(
-  'customExtensions/create',
-  async (name: string) => await addCustomExtension(name)
-)
+export const createCustomExtension = createAsyncThunk<
+  CustomExtension,
+  string,
+  { rejectValue: any }
+>('customExtensions/create', async (name, { rejectWithValue }) => {
+  try {
+    return await addCustomExtension(name)
+  } catch (err: any) {
+    if (err?.response?.data) {
+      return rejectWithValue(err.response.data)
+    }
+    return rejectWithValue({ code: 5000, message: '알 수 없는 오류' })
+  }
+})
 
 export const removeCustomExtension = createAsyncThunk(
   'customExtensions/remove',
@@ -56,6 +66,9 @@ const customExtensionsSlice = createSlice({
       })
       .addCase(createCustomExtension.fulfilled, (state, action) => {
         state.list = [action.payload, ...state.list]
+      })
+      .addCase(createCustomExtension.rejected, (state, action) => {
+        state.error = action.payload?.message ?? '등록 실패'
       })
       .addCase(removeCustomExtension.fulfilled, (state, action) => {
         state.list = state.list.filter((e) => e.id !== action.payload)

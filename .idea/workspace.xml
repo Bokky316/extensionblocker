@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="chore: .gradle 디렉토리 Git 추적 제거 및 .gitignore 반영" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -354,7 +354,31 @@
       <option name="project" value="LOCAL" />
       <updated>1753595963933</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="chore: .gradle 디렉토리 Git 추적 제거 및 .gitignore 반영">
+      <option name="closed" value="true" />
+      <created>1753595984020</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1753595984020</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리">
+      <option name="closed" value="true" />
+      <created>1753597681038</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1753597681038</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리">
+      <option name="closed" value="true" />
+      <created>1753597965189</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1753597965189</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -375,6 +399,7 @@
     <MESSAGE value="refactor: 커스텀 확장자 상태 훅 구조 개선 및 동작 반영 이슈 해결&#10;&#10;- useCustomExtensions 내부 구조 useAppSelector 기반으로 재구성&#10;- fetch/add/remove 액션 useCallback으로 정리&#10;- 등록 후 상태 반영 및 리렌더 문제 해결&#10;- CustomList, CustomInputForm 컴포넌트 구조 정리&#10;- FixedList와 구조 일관성 확보" />
     <MESSAGE value="feat: 고정/커스텀 확장자 중복 등록 시 에러 메시지 세분화&#10;&#10;- 고정 확장자와 커스텀 확장자를 구분하여 사용자에게 명확한 에러 문구 제공&#10;- 백엔드의 409 응답 메시지를 기반으로 조건 분기 처리&#10;- 중복 여부를 프론트 단에서도 사전 검사하여 UX 향상&#10;- 콘솔 디버깅 로그 제거" />
     <MESSAGE value="chore: .gradle 디렉토리 Git 추적 제거 및 .gitignore 반영" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: .gradle 디렉토리 Git 추적 제거 및 .gitignore 반영" />
+    <MESSAGE value="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리" />
   </component>
 </project>

@@ -5,59 +5,83 @@ import { useCustomExtensions } from '@/hooks/useCustomExtensions'
 export const CustomInputForm = () => {
   const [input, setInput] = useState('')
   const [error, setError] = useState('')
+  const [touched, setTouched] = useState(false) // ✅ 최초 blur 이후 검증 여부
 
   const fixedList = useAppSelector((state) => state.fixedExtensions.list ?? [])
   const customList = useAppSelector((state) => state.customExtensions.list ?? [])
   const { addExtension } = useCustomExtensions()
 
+  const validateInput = (value: string): string => {
+    const trimmed = value.trim()
+
+    if (trimmed.length > 20) return '20자 이하로 입력해주세요.'
+    if (!/^[a-zA-Z]*$/.test(trimmed)) return '확장자는 영문만 입력 가능합니다.'
+    if (/\s/.test(value)) return '공백은 입력할 수 없습니다.'
+
+    const lower = trimmed.toLowerCase()
+    if (fixedList.some((ext) => ext?.name?.toLowerCase() === lower))
+      return '고정 확장자에 이미 존재합니다.'
+    if (customList.some((ext) => ext?.name?.toLowerCase() === lower))
+      return '이미 등록된 커스텀 확장자입니다.'
+
+    return ''
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setInput(value)
+
+    if (touched) {
+      setError(validateInput(value))
+    }
+  }
+
+  const handleBlur = () => {
+    setTouched(true)
+    setError(validateInput(input))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const trimmed = input.trim().toLowerCase()
-    if (!trimmed) return
+    const trimmed = input.trim()
+    const lower = trimmed.toLowerCase()
 
-    const isInFixed = fixedList
-      .filter((ext): ext is { name: string } => !!ext && typeof ext.name === 'string')
-      .some((ext) => ext.name.toLowerCase() === trimmed)
-
-    if (isInFixed) {
-      setError('고정 확장자에 이미 존재합니다.')
-      return
-    }
-
-    const isInCustom = customList
-      .filter((ext): ext is { name: string } => !!ext && typeof ext.name === 'string')
-      .some((ext) => ext.name === trimmed)
-
-    if (isInCustom) {
-      setError('이미 등록된 커스텀 확장자입니다.')
+    const localError = validateInput(trimmed)
+    if (localError) {
+      setError(localError)
+      setTouched(true)
       return
     }
 
     try {
-      await addExtension(trimmed)
+      await addExtension(lower)
       setInput('')
       setError('')
+      setTouched(false)
     } catch (err: any) {
-      const res = err?.response
-      const code = res?.data?.code
-      const message = res?.data?.message
-      const details = res?.data?.data
+      const code = err?.code
+      const message = err?.message
+      const details = err?.data
 
-      if (res?.status === 409) {
-        if (message?.includes('고정 확장자')) {
-          setError('고정 확장자에 이미 존재합니다.')
-        } else if (message?.includes('커스텀')) {
-          setError('이미 등록된 커스텀 확장자입니다.')
-        } else {
-          setError(message ?? '이미 등록된 확장자입니다.')
-        }
+      if (message?.includes('고정 확장자')) {
+        setError('고정 확장자에 이미 존재합니다.')
+      } else if (message?.includes('커스텀')) {
+        setError('이미 등록된 커스텀 확장자입니다.')
       } else if (code === 4002) {
         setError('최대 200개까지 등록할 수 있습니다.')
       } else if (code === 4000 && details) {
-        const firstField = Object.keys(details)[0]
-        setError(details[firstField] || message || '입력값이 유효하지 않습니다.')
+        const field = Object.keys(details)[0]
+        const msg = details[field] ?? ''
+        if (field === 'name') {
+          if (msg.includes('영문')) setError('확장자는 영문만 입력 가능합니다.')
+          else if (msg.includes('공백')) setError('공백은 입력할 수 없습니다.')
+          else if (msg.includes('20자')) setError('20자 이하로 입력해주세요.')
+          else setError('확장자 입력값이 올바르지 않습니다.')
+        } else {
+          setError('입력값이 유효하지 않습니다.')
+        }
       } else {
-        setError(message ?? '등록 중 알 수 없는 오류가 발생했습니다.')
+        setError('등록 중 알 수 없는 오류가 발생했습니다.')
       }
     }
   }
@@ -67,13 +91,13 @@ export const CustomInputForm = () => {
       <div className="flex gap-2">
         <input
           value={input}
-          onChange={(e) => {
-            setInput(e.target.value)
-            setError('')
-          }}
+          onChange={handleInputChange}
+          onBlur={handleBlur}
           placeholder="확장자 입력 (예: conf)"
+          className={`px-2 py-1 rounded w-full border ${
+            error ? 'border-red-500' : 'border-gray-300'
+          }`}
           maxLength={20}
-          className="border px-2 py-1 rounded w-full"
         />
         <button type="submit" className="bg-blue-500 text-white px-3 py-1 rounded">
           추가

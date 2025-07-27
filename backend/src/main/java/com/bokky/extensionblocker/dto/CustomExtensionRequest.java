@@ -2,6 +2,7 @@ package com.bokky.extensionblocker.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,8 +16,9 @@ import lombok.NoArgsConstructor;
 @Schema(description = "커스텀 확장자 등록 요청 DTO")
 public class CustomExtensionRequest {
 
-    @Schema(description = "추가할 확장자명", example = "sh", maxLength = 20, nullable = false)
+    @Schema(description = "추가할 확장자명", example = "cof", maxLength = 20, nullable = false)
     @NotBlank(message = "확장자명은 공백일 수 없습니다.")
     @Size(max = 20, message = "확장자명은 최대 20자까지 허용됩니다.")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "확장자명은 영문 알파벳만 입력 가능합니다.")
     private String name;
 }

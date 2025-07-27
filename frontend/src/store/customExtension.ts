@@ -34,10 +34,12 @@ export const createCustomExtension = createAsyncThunk(
       const res = err?.response
       const message = res?.data?.message || '등록 실패'
       const code = res?.data?.code
-      return rejectWithValue({ code, message })
+      const data = res?.data?.data
+      return rejectWithValue({ code, message, data }) // ✅ 이렇게 유지
     }
   }
 )
+
 
 export const removeCustomExtension = createAsyncThunk(
   'customExtension/remove',
