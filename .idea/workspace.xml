@@ -97,7 +97,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Merging master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle",
     "onboarding.tips.debug.path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java",
@@ -574,7 +574,47 @@
       <option name="project" value="LOCAL" />
       <updated>1753616350093</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix: list.length 접근 오류 방지 위한 조건부 렌더링 처리">
+      <option name="closed" value="true" />
+      <created>1753616510583</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1753616510583</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix: list.length 접근 오류 방지 위한 조건부 렌더링 처리">
+      <option name="closed" value="true" />
+      <created>1753616523750</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1753616523750</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fix: list.length 접근 오류 방지 위한 조건부 렌더링 처리">
+      <option name="closed" value="true" />
+      <created>1753616699377</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1753616699377</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix: list.length 접근 오류 방지 위한 조건부 렌더링 처리">
+      <option name="closed" value="true" />
+      <created>1753616840075</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1753616840075</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fix: list.length 접근 오류 방지 위한 조건부 렌더링 처리">
+      <option name="closed" value="true" />
+      <created>1753616946891</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1753616946891</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
