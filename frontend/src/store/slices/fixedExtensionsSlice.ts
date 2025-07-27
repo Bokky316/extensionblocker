@@ -17,7 +17,6 @@ const initialState: FixedExtensionsState = {
   error: null,
 }
 
-// ✅ 고정 확장자 전체 조회
 export const fetchFixedExtensions = createAsyncThunk(
   'fixedExtensions/fetchAll',
   async () => {
@@ -25,7 +24,6 @@ export const fetchFixedExtensions = createAsyncThunk(
   }
 )
 
-// ✅ 고정 확장자 체크 상태 토글 (FixedExtension 객체 반환)
 export const toggleFixed = createAsyncThunk<FixedExtension, number>(
   'fixedExtensions/toggle',
   async (id: number) => {
