@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
+import type { RootState } from '@/store'
 import {
   fetchFixedExtensions,
   toggleFixed,
@@ -9,9 +10,9 @@ import {
 export const useFixedExtensions = () => {
   const dispatch = useAppDispatch()
 
-  const fixedList = useAppSelector((state) => state.fixedExtensions.list)
-  const loading = useAppSelector((state) => state.fixedExtensions.loading)
-  const error = useAppSelector((state) => state.fixedExtensions.error)
+  const fixedList = useAppSelector((state: RootState) => state.fixedExtensions.list)
+  const loading = useAppSelector((state: RootState) => state.fixedExtensions.loading)
+  const error = useAppSelector((state: RootState) => state.fixedExtensions.error)
 
   const fetch = useCallback(() => {
     dispatch(fetchFixedExtensions())

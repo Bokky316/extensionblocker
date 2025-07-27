@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
+import type { RootState } from '@/store'
 import {
   fetchCustomExtensions,
   createCustomExtension,
@@ -10,9 +11,9 @@ import {
 export const useCustomExtensions = () => {
   const dispatch = useAppDispatch()
 
-  const customList = useAppSelector((state) => state.customExtensions.list)
-  const loading = useAppSelector((state) => state.customExtensions.loading)
-  const error = useAppSelector((state) => state.customExtensions.error)
+  const customList = useAppSelector((state: RootState) => state.customExtensions.list)
+  const loading = useAppSelector((state: RootState) => state.customExtensions.loading)
+  const error = useAppSelector((state: RootState) => state.customExtensions.error)
 
   const fetch = useCallback(() => {
     dispatch(fetchCustomExtensions())

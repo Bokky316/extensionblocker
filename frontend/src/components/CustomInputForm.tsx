@@ -3,14 +3,16 @@ import { useAppSelector } from '@/hooks/useAppSelector'
 import { useCustomExtensions } from '@/hooks/useCustomExtensions'
 import { FormInput } from '@/components/common/FormInput'
 import { FormErrorMessage } from '@/components/common/FormErrorMessage'
+import type { RootState } from '@/store'
+import type { FixedExtension, CustomExtension } from '@/types'
 
 export const CustomInputForm = () => {
   const [input, setInput] = useState('')
   const [error, setError] = useState('')
   const [touched, setTouched] = useState(false)
 
-  const fixedList = useAppSelector((state) => state.fixedExtensions.list ?? [])
-  const customList = useAppSelector((state) => state.customExtensions.list ?? [])
+  const fixedList: FixedExtension[] = useAppSelector((state: RootState) => state.fixedExtensions.list ?? [])
+  const customList: CustomExtension[] = useAppSelector((state: RootState) => state.customExtensions.list ?? [])
   const { addExtension } = useCustomExtensions()
 
   const validateInput = (value: string): string => {
