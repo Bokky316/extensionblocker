@@ -18,10 +18,12 @@ const initialState: CustomExtensionState = {
   error: null,
 }
 
+// ✅ 수정된 부분: data만 추출
 export const fetchCustomExtensionsThunk = createAsyncThunk(
   'customExtensions/fetchAll',
   async () => {
-    return await getCustomExtensions()
+    const res = await getCustomExtensions()
+    return res.data
   }
 )
 
