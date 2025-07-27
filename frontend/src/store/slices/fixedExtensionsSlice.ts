@@ -1,11 +1,25 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { FixedExtension } from '@/types'
-import {
-  getFixedExtensions,
-  toggleFixedExtension,
-} from '@/services/extensionService'
+import { getFixedExtensions, toggleFixedExtension } from '@/services/extensionService'
 
-interface FixedExtensionsState {
+
+export const fetchFixedExtensionsThunk = createAsyncThunk(
+  'fixedExtensions/fetchAll',
+  async (): Promise<FixedExtension[]> => {
+    const res = await getFixedExtensions()
+    return res
+  }
+)
+
+export const toggleFixedExtensionThunk = createAsyncThunk(
+  'fixedExtensions/toggle',
+  async (id: number): Promise<FixedExtension> => {
+    const res = await toggleFixedExtension(id)
+    return res
+  }
+)
+
+type FixedExtensionsState = {
   list: FixedExtension[]
   loading: boolean
   error: string | null
@@ -17,52 +31,37 @@ const initialState: FixedExtensionsState = {
   error: null,
 }
 
-export const fetchFixedExtensions = createAsyncThunk(
-  'fixedExtensions/fetchAll',
-  async () => {
-    return await getFixedExtensions()
-  }
-)
-
-export const toggleFixed = createAsyncThunk<FixedExtension, number>(
-  'fixedExtensions/toggle',
-  async (id: number) => {
-    const result = await toggleFixedExtension(id)
-    if (!result) throw new Error('응답이 null입니다')
-    return result
-  }
-)
-
-const fixedExtensionsSlice = createSlice({
+export const fixedExtensionsSlice = createSlice({
   name: 'fixedExtensions',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // 전체 조회
     builder
-      .addCase(fetchFixedExtensions.pending, (state) => {
+      .addCase(fetchFixedExtensionsThunk.pending, (state) => {
         state.loading = true
         state.error = null
       })
-      .addCase(
-        fetchFixedExtensions.fulfilled,
-        (state, action: PayloadAction<FixedExtension[]>) => {
-          state.list = action.payload
-          state.loading = false
-        }
-      )
-      .addCase(fetchFixedExtensions.rejected, (state, action) => {
+      .addCase(fetchFixedExtensionsThunk.fulfilled, (state, action) => {
         state.loading = false
-        state.error = action.error.message ?? '에러 발생'
+        state.list = action.payload
       })
-      .addCase(toggleFixed.fulfilled, (state, action: PayloadAction<FixedExtension>) => {
-        const toggled = action.payload
-        const index = state.list.findIndex(item => item.id === toggled.id)
+      .addCase(fetchFixedExtensionsThunk.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message ?? '고정 확장자 조회 실패'
+      })
+
+    // 상태 토글
+    builder
+      .addCase(toggleFixedExtensionThunk.fulfilled, (state, action) => {
+        const updated = action.payload
+        const index = state.list.findIndex((item) => item.id === updated.id)
         if (index !== -1) {
-          state.list[index].checked = toggled.checked
+          state.list[index] = updated
         }
       })
-      .addCase(toggleFixed.rejected, (state, action) => {
-        state.error = action.error.message ?? '토글 실패'
+      .addCase(toggleFixedExtensionThunk.rejected, (state, action) => {
+        state.error = action.error.message ?? '고정 확장자 토글 실패'
       })
   },
 })
