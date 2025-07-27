@@ -17,6 +17,7 @@ const initialState: FixedExtensionsState = {
   error: null,
 }
 
+// ✅ 고정 확장자 전체 조회
 export const fetchFixedExtensions = createAsyncThunk(
   'fixedExtensions/fetchAll',
   async () => {
@@ -24,12 +25,13 @@ export const fetchFixedExtensions = createAsyncThunk(
   }
 )
 
+// ✅ 고정 확장자 체크 상태 토글 (FixedExtension 객체 반환)
 export const toggleFixed = createAsyncThunk<FixedExtension, number>(
   'fixedExtensions/toggle',
   async (id: number) => {
     const result = await toggleFixedExtension(id)
     if (!result) throw new Error('응답이 null입니다')
-    return result // FixedExtension 반환
+    return result
   }
 )
 
@@ -55,10 +57,10 @@ const fixedExtensionsSlice = createSlice({
         state.error = action.error.message ?? '에러 발생'
       })
       .addCase(toggleFixed.fulfilled, (state, action: PayloadAction<FixedExtension>) => {
-        const id = action.payload.id
-        const index = state.list.findIndex(item => item.id === id)
+        const toggled = action.payload
+        const index = state.list.findIndex(item => item.id === toggled.id)
         if (index !== -1) {
-          state.list[index].checked = action.payload.checked
+          state.list[index].checked = toggled.checked
         }
       })
       .addCase(toggleFixed.rejected, (state, action) => {
