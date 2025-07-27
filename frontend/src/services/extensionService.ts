@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { api } from './api' // 사용 안 하면 제거 가능
 import type { ApiResponse } from './api'
-import type { FixedExtension, CustomExtension } from '../types'
+import type { FixedExtension, CustomExtension } from '@/types'
 
 const API = import.meta.env.VITE_API_BASE_URL
 
@@ -12,9 +12,10 @@ export const getFixedExtensions = async (): Promise<FixedExtension[]> => {
 }
 
 /** 고정 확장자 체크 상태 토글 */
-export const toggleFixedExtension = async (id: number): Promise<FixedExtension> => {
+export const toggleFixedExtension = async (id: number): Promise<number> => {
   const res = await axios.put(`${API}/api/fixed/${id}`)
-  return res.data.data
+  console.log('🔥 응답 확인:', res.data)
+  return id // ✅ 서버에 반영된 id만 믿고 그대로 리턴
 }
 
 /** 커스텀 확장자 목록 조회 */

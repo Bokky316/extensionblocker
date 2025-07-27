@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import customExtensionReducer from './customExtension'
+import fixedExtensionsReducer from '@/store/slices/fixedExtensionsSlice'
+import customExtensionsReducer from '@/store/slices/customExtensionsSlice'
 
 export const store = configureStore({
   reducer: {
-    customExtension: customExtensionReducer,
+    fixedExtensions: fixedExtensionsReducer,
+    customExtensions: customExtensionsReducer,
   },
 })
 

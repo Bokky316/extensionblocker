@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useAppDispatch } from '../hooks/useAppDispatch'
-import { createCustomExtension } from '../store/customExtension'
+import { useAppDispatch } from '@/hooks/useAppDispatch'
+import { createCustomExtension } from '@/store/customExtension'
 
 export const CustomInputForm = () => {
   const dispatch = useAppDispatch()

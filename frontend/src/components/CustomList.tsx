@@ -1,4 +1,4 @@
-import { useCustomExtensions } from '../hooks/useCustomExtensions'
+import { useCustomExtensions } from '@/hooks/useCustomExtensions'
 import React from 'react'
 
 export const CustomList = () => {

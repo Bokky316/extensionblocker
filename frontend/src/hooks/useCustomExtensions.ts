@@ -1,38 +1,35 @@
-import { useEffect, useState } from 'react'
-import type { CustomExtension } from '../types'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
-  getCustomExtensions,
-  addCustomExtension,
-  deleteCustomExtension,
-} from '../services/extensionService'
+  fetchCustomExtensions,
+  createCustomExtension,
+  removeCustomExtension,
+} from '@/store/slices/customExtensionsSlice'
+import type { RootState, AppDispatch } from '@/store'
 
 export const useCustomExtensions = () => {
-  const [customList, setCustomList] = useState<CustomExtension[]>([])
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
+  const { list, loading, error } = useSelector(
+    (state: RootState) => state.customExtensions
+  )
 
   useEffect(() => {
-    fetchList()
-  }, [])
+    dispatch(fetchCustomExtensions())
+  }, [dispatch])
 
-  const fetchList = async () => {
-    setLoading(true)
-    try {
-      const data = await getCustomExtensions()
-      setCustomList(data)
-    } finally {
-      setLoading(false)
-    }
+  const addExtension = (name: string) => {
+    dispatch(createCustomExtension(name))
   }
 
-  const add = async (name: string) => {
-    await addCustomExtension(name)
-    fetchList()
+  const deleteExtension = (id: number) => {
+    dispatch(removeCustomExtension(id))
   }
 
-  const remove = async (id: number) => {
-    await deleteCustomExtension(id)
-    fetchList()
+  return {
+    customList: list,
+    loading,
+    error,
+    addExtension,
+    deleteExtension,
   }
-
-  return { customList, loading, add, remove }
 }
