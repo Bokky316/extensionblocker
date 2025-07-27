@@ -25,12 +25,11 @@ export const fetchFixedExtensions = createAsyncThunk(
   }
 )
 
-// 고정 확장자 토글 (nullable 허용)
-export const toggleFixed = createAsyncThunk<FixedExtension | null, number>(
+// 정 확장자 토글 (응답 없음, 성공만 확인)
+export const toggleFixed = createAsyncThunk<void, number>(
   'fixedExtensions/toggle',
   async (id: number) => {
-    const result = await toggleFixedExtension(id)
-    return result // null도 허용
+    await toggleFixedExtension(id)
   }
 )
 
@@ -54,15 +53,6 @@ const fixedExtensionsSlice = createSlice({
       .addCase(fetchFixedExtensions.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message ?? '에러 발생'
-      })
-      .addCase(toggleFixed.fulfilled, (state, action: PayloadAction<FixedExtension | null>) => {
-        const toggled = action.payload
-        if (!toggled) return
-
-        const target = state.list.find(item => item?.id === toggled.id)
-        if (target) {
-          target.checked = toggled.checked
-        }
       })
       .addCase(toggleFixed.rejected, (state, action) => {
         state.error = action.error.message ?? '토글 실패'

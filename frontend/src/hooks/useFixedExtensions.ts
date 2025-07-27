@@ -18,13 +18,12 @@ export const useFixedExtensions = () => {
     dispatch(fetchFixedExtensions())
   }, [dispatch])
 
+  // toggle 성공 후 전체 fetch
   const toggle = useCallback(
     async (id: number) => {
       try {
-        const result = await dispatch(toggleFixed(id)).unwrap()
-        if (!result) {
-          console.warn(`[toggle] ID ${id} 응답이 null이므로 상태 변경 생략`)
-        }
+        await dispatch(toggleFixed(id)).unwrap()
+        await dispatch(fetchFixedExtensions())
       } catch (err) {
         console.error('토글 실패:', err)
       }

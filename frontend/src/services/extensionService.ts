@@ -11,17 +11,9 @@ export const getFixedExtensions = async (): Promise<FixedExtension[]> => {
   return data
 }
 
-// 고정 확장자 체크 상태 토글 (data가 null이어도 허용)
-export const toggleFixedExtension = async (id: number): Promise<FixedExtension | null> => {
-  const res = await axios.put(`${API}/fixed/${id}`)
-  const data = res.data.data ?? null
-
-  if (data === null) {
-    console.warn('[toggleFixedExtension] 응답 data가 null입니다.')
-    return null
-  }
-
-  return data
+// 고정 확장자 체크 상태 토글 (응답 data는 무시)
+export const toggleFixedExtension = async (id: number): Promise<void> => {
+  await axios.put(`${API}/fixed/${id}`)
 }
 
 // 커스텀 확장자 목록 조회
