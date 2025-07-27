@@ -11,7 +11,7 @@ import {
 export const useCustomExtensions = () => {
   const dispatch = useAppDispatch()
 
-  const customList = useAppSelector((state: RootState) => state.customExtensions.list)
+  const customList = useAppSelector((state: RootState) => state.customExtensions.list ?? [])
   const loading = useAppSelector((state: RootState) => state.customExtensions.loading)
   const error = useAppSelector((state: RootState) => state.customExtensions.error)
 

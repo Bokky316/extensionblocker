@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix:">
-      <change beforePath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" afterDir="false" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useFixedExtensions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useFixedExtensions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -536,11 +537,26 @@
       <option name="project" value="LOCAL" />
       <updated>1753615275237</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료">
+      <option name="closed" value="true" />
+      <created>1753615478210</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1753615478210</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료">
+      <option name="closed" value="true" />
+      <created>1753615483375</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1753615483375</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 고정 확장자 enum, 엔티티, 초기 seed 로딩 기능 추가&#10;&#10;- FixedExtensionType enum 정의 (EXE, SH 등)&#10;- FixedExtension 엔티티 생성 (checked 상태 포함)&#10;- CommandLineRunner 기반 seed 자동 주입 구성&#10;- FixedExtensionRepository 인터페이스 생성" />
     <MESSAGE value="." />
     <MESSAGE value="feat: 커스텀 확장자 엔티티 및 레포지토리 구현&#10;&#10;- CustomExtension 엔티티 생성 (name, createdAt)&#10;- 중복 방지를 위한 name 유니크 제약&#10;- 생성일 자동 저장용 @CreationTimestamp 사용&#10;- CustomExtensionRepository 인터페이스 구현" />
     <MESSAGE value="커밋 feat: 커스텀 확장자 요청 DTO 및 예외 처리 구조 구현&#10;&#10;- 확장자 등록용 CustomExtensionRequest DTO 생성 (@Valid 적용)&#10;- 중복 및 최대 개수 초과 예외 클래스 추가&#10;- GlobalExceptionHandler 통해 공통 에러 응답 구조화" />
@@ -565,6 +581,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;frontend/src/store/slices/fixedExtensionsSlice.ts" />
     <MESSAGE value="fix: toggleFixedExtensionThunk 타입 오류 수정 및 상태 처리 통일&#10;- toggle thunk에서 FixedExtension 전체 반환하도록 수정&#10;- extraReducers에서 list 상태 업데이트 시 정확한 위치 지정&#10;- 오류 메시지 및 로딩 상태 관리 추가" />
     <MESSAGE value="fix:" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:" />
+    <MESSAGE value="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: toggleFixedExtension 서비스 함수 반환 타입 수정 및 타입 오류 해결&#10;&#10;- toggleFixedExtension() 함수가 FixedExtension 객체를 반환하도록 변경&#10;- toggleFixedExtensionThunk와 slice reducer에서 반환 타입 일치 보장&#10;- 전체 thunk 연동 구조에 맞춰 API 응답 형식 정리 완료" />
   </component>
 </project>

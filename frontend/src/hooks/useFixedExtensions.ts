@@ -9,7 +9,7 @@ import type { RootState, AppDispatch } from '@/store'
 export const useFixedExtensions = () => {
   const dispatch = useDispatch<AppDispatch>()
 
-  const fixedList = useSelector((state: RootState) => state.fixedExtensions.list)
+  const fixedList = useSelector((state: RootState) => state.fixedExtensions.list ?? [])
   const loading = useSelector((state: RootState) => state.fixedExtensions.loading)
   const error = useSelector((state: RootState) => state.fixedExtensions.error)
 
