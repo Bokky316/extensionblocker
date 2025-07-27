@@ -21,16 +21,16 @@ Spring Boot 기반으로 구현한 **파일 확장자 차단 백엔드 서버**�
 
 ## ⚙️ 기술 스택
 
-| 분류 | 사용 기술 |
-|------|-----------|
-| Language | Java 17 |
-| Framework | Spring Boot 3 |
-| ORM | Spring Data JPA |
-| DB | H2 (테스트용) / MariaDB (로컬 실행용) |
-| Docs | springdoc-openapi (Swagger) |
-| Build Tool | Gradle |
-| Test | JUnit 5, Mockito |
-| 기타 | Lombok, Validation, Global Exception Handling |
+| 분류       | 사용 기술                          |
+|------------|-----------------------------------|
+| Language   | Java 17                           |
+| Framework  | Spring Boot 3                     |
+| ORM        | Spring Data JPA                   |
+| DB         | H2 (테스트용) / MariaDB (로컬)     |
+| Docs       | springdoc-openapi (Swagger)       |
+| Build Tool | Gradle                            |
+| Test       | JUnit 5, Mockito                  |
+| 기타       | Lombok, Validation, Global Advice |
 
 ---
 
@@ -44,7 +44,7 @@ cd extensionblocker/backend
 ./gradlew bootRun
 ```
 
-> Swagger 접속 주소: [http://15.165.114.113/swagger-ui/index.html](http://15.165.114.113/swagger-ui/index.html)
+> Swagger 접속 주소: [http://15.165.114.113:8080/swagger-ui/index.html](http://15.165.114.113:8080/swagger-ui/index.html)
 
 ※ 기본 DB는 로컬 MariaDB 사용  
 ※ 테스트 실행 시 자동으로 H2(in-memory) DB로 전환됩니다
@@ -81,7 +81,7 @@ cd extensionblocker/backend
 
 - 단위 테스트 포함 (`src/test/java`)
 - 테스트 대상: `Service`, `Controller` 계층
-- 실행 방법:
+- 실행:
 
 ```bash
 ./gradlew test
@@ -111,14 +111,14 @@ backend
 
 ## 🛠 고려한 설계 사항
 
-| 항목 | 설명 |
-|------|------|
-| 고정 확장자 | `FixedExtensionType` enum + `DataInitializer`로 DB 초기화 |
-| 커스텀 확장자 | 최대 200개 제한 + DB 유니크(lowercase)로 중복 방지 |
-| 응답 구조 | `ApiResponse<T>`를 통해 일관된 응답 구조 유지 |
-| 유효성 검사 | `@Valid` + `@ControllerAdvice`로 예외 처리 통합 |
-| 정렬 기준 | 커스텀 확장자는 생성일 기준 역순 정렬 |
-| 유지보수성 | DTO 계층 분리, 서비스 테스트 구조화 완료 |
+| 항목        | 설명 |
+|-------------|------|
+| 고정 확장자 | `FixedExtensionType` enum + `DataInitializer`로 초기화 |
+| 커스텀 확장자 | 최대 200개 제한 + 소문자 기준 중복 방지 (DB 유니크) |
+| 응답 구조    | `ApiResponse<T>` 통일 포맷 사용 |
+| 예외 처리    | `@Valid` + `@ControllerAdvice` |
+| 정렬 기준    | 커스텀 확장자 등록일 기준 역순 정렬 |
+| 유지보수성   | DTO 분리 + 테스트 기반 구조 |
 
 ---
 
@@ -126,4 +126,4 @@ backend
 
 본 프로젝트는 면접 제출용 과제로,  
 **기능 충족 + 구조 안정성 + 유지보수 가능성**을 고려해 설계 및 구현했습니다.  
-추후 확장성(로그인 인증, 사용자별 차단 설정 등)까지도 고려할 수 있는 구조로 구성되어 있습니다.
+추후 확장성(예: 사용자별 차단 설정, 인증 연동 등)을 염두에 둔 구조입니다.
