@@ -19,15 +19,17 @@ const initialState: FixedExtensionsState = {
 
 export const fetchFixedExtensions = createAsyncThunk(
   'fixedExtensions/fetchAll',
-  async () => await getFixedExtensions()
+  async () => {
+    return await getFixedExtensions()
+  }
 )
 
-export const toggleFixed = createAsyncThunk(
+export const toggleFixed = createAsyncThunk<FixedExtension, number>(
   'fixedExtensions/toggle',
   async (id: number) => {
     const result = await toggleFixedExtension(id)
     if (!result) throw new Error('응답이 null입니다')
-    return result.id
+    return result // FixedExtension 반환
   }
 )
 
@@ -44,15 +46,23 @@ const fixedExtensionsSlice = createSlice({
       .addCase(
         fetchFixedExtensions.fulfilled,
         (state, action: PayloadAction<FixedExtension[]>) => {
+          state.list = action.payload
           state.loading = false
-          state.list = action.payload ?? []
         }
       )
-      .addCase(toggleFixed.fulfilled, (state, action: PayloadAction<number>) => {
-        const index = state.list.findIndex((item) => item.id === action.payload)
+      .addCase(fetchFixedExtensions.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message ?? '에러 발생'
+      })
+      .addCase(toggleFixed.fulfilled, (state, action: PayloadAction<FixedExtension>) => {
+        const id = action.payload.id
+        const index = state.list.findIndex(item => item.id === id)
         if (index !== -1) {
-          state.list[index].checked = !state.list[index].checked
+          state.list[index].checked = action.payload.checked
         }
+      })
+      .addCase(toggleFixed.rejected, (state, action) => {
+        state.error = action.error.message ?? '토글 실패'
       })
   },
 })
