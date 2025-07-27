@@ -7,9 +7,9 @@
 *.h2.db
 *.db
 
-.gradle/
+.gradle/                            # Gradle 캐시 및 락 파일 무시
 build/
-!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar  # gradle-wrapper만 추적
 
 # === Spring Boot ===
 target/
