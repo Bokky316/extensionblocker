@@ -58,7 +58,7 @@ const customExtensionsSlice = createSlice({
       })
       .addCase(fetchCustomExtensions.fulfilled, (state, action) => {
         state.loading = false
-        state.list = action.payload
+        state.list = action.payload ?? []
       })
       .addCase(fetchCustomExtensions.rejected, (state, action) => {
         state.loading = false

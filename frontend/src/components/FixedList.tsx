@@ -1,9 +1,8 @@
 import { useFixedExtensions } from '@/hooks/useFixedExtensions'
-import type { FixedExtension } from '@/types'
 
 export const FixedList = () => {
   const { fixedList, loading, error, toggle } = useFixedExtensions()
-  const list = fixedList as FixedExtension[]
+  const list = fixedList ?? []
 
   if (loading) return <p>로딩 중...</p>
   if (error) return <p>에러 발생: {error}</p>
@@ -11,8 +10,8 @@ export const FixedList = () => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-2">고정 확장자</h2>
-      <div className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
-        {fixedList.map((item) => (
+      <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
+        {list.map((item) => (
           <li key={item.id} className="flex items-center space-x-2">
             <input
               type="checkbox"
@@ -22,7 +21,7 @@ export const FixedList = () => {
             <span className="text-sm">{item.name}</span>
           </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }
