@@ -1,4 +1,3 @@
-
 # 🔐 파일 확장자 차단 시스템 (Extension Blocker)
 
 Spring Boot 기반으로 구현한 **파일 확장자 차단 백엔드 서버**입니다.  
@@ -27,11 +26,11 @@ Spring Boot 기반으로 구현한 **파일 확장자 차단 백엔드 서버**�
 | Language | Java 17 |
 | Framework | Spring Boot 3 |
 | ORM | Spring Data JPA |
-| DB | H2 (in-memory, 테스트용) / MariaDB (로컬 실행용) |
+| DB | H2 (테스트용) / MariaDB (로컬 실행용) |
 | Docs | springdoc-openapi (Swagger) |
 | Build Tool | Gradle |
 | Test | JUnit 5, Mockito |
-| 기타 | Lombok, Validation, Exception Advice 등 |
+| 기타 | Lombok, Validation, Global Exception Handling |
 
 ---
 
@@ -43,24 +42,24 @@ cd extensionblocker/backend
 
 # 실행
 ./gradlew bootRun
-````
+```
 
-> Swagger 접속: [http://15.165.114.113/swagger-ui/index.html](http://15.165.114.113/swagger-ui/index.html)
+> Swagger 접속 주소: [http://15.165.114.113/swagger-ui/index.html](http://15.165.114.113/swagger-ui/index.html)
 
-※ 기본 DB는 로컬 MariaDB 사용.
-※ 테스트 실행 시에는 자동으로 H2(in-memory) DB로 전환됩니다.
+※ 기본 DB는 로컬 MariaDB 사용  
+※ 테스트 실행 시 자동으로 H2(in-memory) DB로 전환됩니다
 
 ---
 
 ## 📌 API 명세
 
 | 메서드    | 경로                 | 설명                   |
-| ------ | ------------------ | -------------------- |
-| GET    | `/api/fixed`       | 고정 확장자 전체 조회         |
-| PUT    | `/api/fixed/{id}`  | 고정 확장자 check/uncheck |
-| GET    | `/api/custom`      | 커스텀 확장자 전체 조회        |
-| POST   | `/api/custom`      | 커스텀 확장자 등록           |
-| DELETE | `/api/custom/{id}` | 커스텀 확장자 삭제           |
+| --------- | ------------------ | ---------------------- |
+| `GET`     | `/api/fixed`       | 고정 확장자 전체 조회         |
+| `PUT`     | `/api/fixed/{id}`  | 고정 확장자 check/uncheck |
+| `GET`     | `/api/custom`      | 커스텀 확장자 전체 조회        |
+| `POST`    | `/api/custom`      | 커스텀 확장자 등록           |
+| `DELETE`  | `/api/custom/{id}` | 커스텀 확장자 삭제           |
 
 ### ✅ 응답 예시 (성공)
 
@@ -80,16 +79,16 @@ cd extensionblocker/backend
 
 ## 🧪 테스트
 
-* 단위 테스트 포함 (`src/test/java`)
-* 테스트 대상: Service, Controller 계층
-* 실행:
+- 단위 테스트 포함 (`src/test/java`)
+- 테스트 대상: `Service`, `Controller` 계층
+- 실행 방법:
 
 ```bash
 ./gradlew test
 ```
 
-> 테스트 실행 시 H2 DB(in-memory)가 자동 사용되며,
-> MariaDB 연결 없이도 전체 테스트가 통과됩니다.
+> 테스트 실행 시 H2(in-memory) DB가 자동 사용됩니다.  
+> MariaDB 없이도 전체 테스트 통과 가능
 
 ---
 
@@ -103,7 +102,7 @@ backend
  ┣ 📂repository        ← JPA 레포지토리
  ┣ 📂service           ← 비즈니스 로직
  ┣ 📂exception         ← 예외 정의 및 처리
- ┣ 📂config            ← Swagger, Seed 초기화 등
+ ┣ 📂config            ← Swagger, Seed 초기화 등 설정
  ┣ 📂common            ← 공통 응답 포맷
  ┗ 📂test              ← JUnit 단위 테스트
 ```
@@ -112,14 +111,19 @@ backend
 
 ## 🛠 고려한 설계 사항
 
-* 고정 확장자: `FixedExtensionType` enum + `DataInitializer`로 초기 로딩
-* 커스텀 확장자: 최대 200개 제한, DB 내 중복 방지 (lowercase 저장)
-* 예외 처리: `@Valid`, `@ControllerAdvice` 기반 전역 예외 처리
-* 응답 구조 통일: `ApiResponse<T>`로 성공/에러 모두 통일
+| 항목 | 설명 |
+|------|------|
+| 고정 확장자 | `FixedExtensionType` enum + `DataInitializer`로 DB 초기화 |
+| 커스텀 확장자 | 최대 200개 제한 + DB 유니크(lowercase)로 중복 방지 |
+| 응답 구조 | `ApiResponse<T>`를 통해 일관된 응답 구조 유지 |
+| 유효성 검사 | `@Valid` + `@ControllerAdvice`로 예외 처리 통합 |
+| 정렬 기준 | 커스텀 확장자는 생성일 기준 역순 정렬 |
+| 유지보수성 | DTO 계층 분리, 서비스 테스트 구조화 완료 |
 
 ---
 
 ## 👤 개발자 메모
 
-본 프로젝트는 면접용 과제로 구현되었으며,
-**구현 범위 명확성 + 안정성 + 유지보수성**을 고려해 구조화했습니다.
+본 프로젝트는 면접 제출용 과제로,  
+**기능 충족 + 구조 안정성 + 유지보수 가능성**을 고려해 설계 및 구현했습니다.  
+추후 확장성(로그인 인증, 사용자별 차단 설정 등)까지도 고려할 수 있는 구조로 구성되어 있습니다.

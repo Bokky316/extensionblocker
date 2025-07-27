@@ -1,4 +1,3 @@
-
 # 🛡️ Extension Blocker 프로젝트
 
 보안상 위험한 실행 파일의 업로드를 방지하기 위한 **파일 확장자 차단 시스템**입니다.  
@@ -10,13 +9,18 @@
 ## 📦 프로젝트 구성
 
 ```
-
 /
 ├── backend/       # Java 17, Spring Boot 기반 REST API 서버
 ├── frontend/      # React + Vite 기반 프론트엔드 앱 (포트: 3000)
 └── README.md      # 공통 설명 파일 (← 현재 문서)
+```
 
-````
+---
+
+## 🔗 배포 링크
+
+* 배포 주소: [http://15.165.114.113](http://15.165.114.113)
+* GitHub 주소: [Bokky316/extensionblocker](https://github.com/Bokky316/extensionblocker)
 
 ---
 
@@ -40,25 +44,24 @@
 | 3-1 | 커스텀 확장자는 최대 200개까지 등록 가능 | ✅ |
 | 3-2 | 커스텀 확장자 옆 X 버튼 클릭 시 DB에서 삭제 | ✅ |
 
-
 ---
 
 ## 💡 추가 고려 사항
 
 | 항목 | 설명 |
 |------|------|
-|  고정/커스텀 확장자 완전 분리 | 고정은 `checked` 상태만 변경, 커스텀은 CRUD 가능 |
-|  커스텀 확장자 최대 200개 제한 | DB 저장 전 count 쿼리로 제한 |
-|  중복 등록 방지 | 고정 + 커스텀 통합 비교, 대소문자 구분 없이 처리 |
-|  입력값 정규화 처리 | `.trim()` + `.toLowerCase()` 적용 |
-|  영문자만 허용 | 프론트 입력 시 실시간 검증 (`/[^a-zA-Z]/` 차단) |
-|  실시간 유효성 피드백 | 길이 초과, 중복, 영문 외 입력 시 즉시 메시지 노출 |
-|  고정 확장자 상태 유지 | DB의 `checked` 필드로 상태 저장 → 새로고침 반영 |
-|  REST API 응답 포맷 통일 | `{ code, message, data }` 구조로 성공/에러 일관 처리 |
-|  @Valid + 글로벌 예외 처리 | DTO 유효성 검증 + `GlobalExceptionHandler`로 응답 일관성 유지 |
-|  생성일 기준 정렬 | 커스텀 확장자는 등록일 역순으로 표시 |
-|  프론트/백엔드 모듈 분리 | 실행 환경, 디렉토리, 환경변수, README 분리 관리 |
-|  API 에러 처리 UI 반영 | Axios 에러 응답 시 사용자에게 메시지 노출 처리 완료 |
+| 고정/커스텀 확장자 완전 분리 | 고정은 `checked` 상태만 변경, 커스텀은 CRUD 가능 |
+| 커스텀 확장자 최대 200개 제한 | DB 저장 전 count 쿼리로 제한 |
+| 중복 등록 방지 | 고정 + 커스텀 통합 비교, 대소문자 구분 없이 처리 |
+| 입력값 정규화 처리 | `.trim()` + `.toLowerCase()` 적용 |
+| 영문자만 허용 | 프론트 입력 시 실시간 검증 (`/[^a-zA-Z]/` 차단) |
+| 실시간 유효성 피드백 | 길이 초과, 중복, 영문 외 입력 시 즉시 메시지 노출 |
+| 고정 확장자 상태 유지 | DB의 `checked` 필드로 상태 저장 → 새로고침 반영 |
+| REST API 응답 포맷 통일 | `{ code, message, data }` 구조로 성공/에러 일관 처리 |
+| @Valid + 글로벌 예외 처리 | DTO 유효성 검증 + `GlobalExceptionHandler`로 응답 일관성 유지 |
+| 생성일 기준 정렬 | 커스텀 확장자는 등록일 역순으로 표시 |
+| 프론트/백엔드 모듈 분리 | 실행 환경, 디렉토리, 환경변수, README 분리 관리 |
+| API 에러 처리 UI 반영 | Axios 에러 응답 시 사용자에게 메시지 노출 처리 완료 |
 
 ---
 
@@ -78,7 +81,7 @@
 ```bash
 cd backend
 ./gradlew bootRun
-````
+```
 
 ### 2. 프론트엔드 실행
 
@@ -89,14 +92,10 @@ npm run dev
 ```
 
 * 프론트는 기본 포트 **3000번**
-* `.env`에 아래와 같이 백엔드 주소 설정 필요:
+* `.env` 또는 `.env.production`에 아래와 같이 백엔드 주소 설정 필요:
 
-```
-<<<<<<< HEAD
-VITE_API_BASE_URL=http://15.165.114.113
-=======
+```env
 VITE_API_BASE_URL=http://localhost:8080
->>>>>>> origin/master
 ```
 
 ---
@@ -104,17 +103,9 @@ VITE_API_BASE_URL=http://localhost:8080
 ## 📮 API 요약
 
 | 메서드    | 경로                            | 설명            |
-| ------ | ----------------------------- | ------------- |
-| GET    | `/api/fixed`                  | 고정 확장자 전체 조회  |
-| PUT    | `/api/fixed/{id}`             | 고정 확장자 상태 변경  |
-| GET    | `/api/extensions/custom`      | 커스텀 확장자 목록 조회 |
-| POST   | `/api/extensions/custom`      | 커스텀 확장자 등록    |
-| DELETE | `/api/extensions/custom/{id}` | 커스텀 확장자 삭제    |
-
----
-
-## 📌 제출 정보
-
-* 배포 링크: [https://your-deployed-site.com](https://your-deployed-site.com)
-* GitHub 주소: [Bokky316/extensionblocker](https://github.com/Bokky316/extensionblocker)
-
+| --------- | ----------------------------- | --------------- |
+| GET       | `/api/fixed`                  | 고정 확장자 전체 조회  |
+| PUT       | `/api/fixed/{id}`             | 고정 확장자 상태 변경  |
+| GET       | `/api/extensions/custom`      | 커스텀 확장자 목록 조회 |
+| POST      | `/api/extensions/custom`      | 커스텀 확장자 등록    |
+| DELETE    | `/api/extensions/custom/{id}` | 커스텀 확장자 삭제    |

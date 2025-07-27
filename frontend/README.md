@@ -1,10 +1,3 @@
-좋습니다. 보내주신 디렉터리 구조를 반영해서 `frontend/README.md`의 **폴더 구조 섹션**을 최신 상태로 업데이트한 버전을 아래에 제공드립니다.
-
----
-
-### 📁 `frontend/README.md` (최종 갱신본)
-
-````markdown
 # 📁 Extension Blocker - Frontend
 
 파일 확장자 차단 시스템의 프론트엔드 레포지토리입니다.  
@@ -37,17 +30,13 @@ npm install
 
 # 3. 개발 서버 실행
 npm run dev
-````
-
-> 기본 실행 포트는 \*\*`3000`\*\*입니다.
-> `.env` 파일에 아래처럼 백엔드 주소를 설정해주세요:
-
 ```
-<<<<<<< HEAD
-VITE_API_BASE_URL=http://15.165.114.113
-=======
+
+> 기본 실행 포트는 **`3000`**입니다.  
+> `.env` 또는 `.env.production` 파일에 아래처럼 백엔드 주소를 설정해주세요:
+
+```env
 VITE_API_BASE_URL=http://localhost:8080
->>>>>>> origin/master
 ```
 
 ---
@@ -94,10 +83,10 @@ src/
 
 * **React 18 + TypeScript**
 * **Redux Toolkit + RTK Query**
+* **Zustand**
+* **Axios**
 * **Vite**
 * **Tailwind CSS**
-* **Axios**
-* **Zustand**
 
 ---
 
@@ -106,9 +95,8 @@ src/
 * 모든 확장자는 **소문자로 통일 (`toLowerCase`)**
 * 입력값은 `.trim()` 처리 후 등록
 * 커스텀 확장자 등록 시:
-
-    * 고정 + 커스텀 포함 중복 체크
-    * 최대 200개 제한
+  - 고정 + 커스텀 포함 중복 체크
+  - 최대 200개 제한
 * 삭제 즉시 반영
 * 고정 확장자는 삭제되지 않고 `checked` 상태만 변경됨
 
@@ -125,12 +113,12 @@ src/
 ## 🔗 API 연동 정보
 
 | 메서드    | 경로                            | 설명            |
-| ------ | ----------------------------- | ------------- |
-| GET    | `/api/fixed`                  | 고정 확장자 전체 조회  |
-| PUT    | `/api/fixed/{id}`             | 고정 확장자 상태 토글  |
-| GET    | `/api/extensions/custom`      | 커스텀 확장자 목록 조회 |
-| POST   | `/api/extensions/custom`      | 커스텀 확장자 등록    |
-| DELETE | `/api/extensions/custom/{id}` | 커스텀 확장자 삭제    |
+| --------- | ----------------------------- | --------------- |
+| `GET`     | `/api/fixed`                  | 고정 확장자 전체 조회  |
+| `PUT`     | `/api/fixed/{id}`             | 고정 확장자 상태 토글  |
+| `GET`     | `/api/extensions/custom`      | 커스텀 확장자 목록 조회 |
+| `POST`    | `/api/extensions/custom`      | 커스텀 확장자 등록    |
+| `DELETE`  | `/api/extensions/custom/{id}` | 커스텀 확장자 삭제    |
 
 ---
 
@@ -139,4 +127,3 @@ src/
 * Node.js 18+
 * npm 9+
 * Vite 5+
-
