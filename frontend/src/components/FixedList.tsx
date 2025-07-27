@@ -1,8 +1,13 @@
-import React from 'react'
+// src/components/FixedList.tsx
 import { useFixedExtensions } from '@/hooks/useFixedExtensions'
 
 export const FixedList = () => {
-  const { fixedList, loading, error, toggle } = useFixedExtensions()
+  const {
+    fixedList = [],
+    loading,
+    error,
+    toggle,
+  } = useFixedExtensions()
 
   const list = Array.isArray(fixedList) ? fixedList : []
 
@@ -14,7 +19,7 @@ export const FixedList = () => {
       <h2 className="text-xl font-bold mb-2">고정 확장자</h2>
       <p className="text-xs text-gray-400 mb-2">총 {list.length}개</p>
       <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
-        {list.map((item) => (
+        {(list ?? []).map((item) => (
           <li key={item.id} className="flex items-center space-x-2">
             <input
               type="checkbox"
