@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/FormErrorMessage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/FormInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/Pill.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomInputForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomInputForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FixedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FixedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,37 +79,37 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ExtensionBlockerApplication.executor": "Run",
-    "Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor": "Run",
-    "Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor": "Run",
-    "Gradle.CustomExtensionControllerTest.executor": "Run",
-    "Gradle.CustomExtensionServiceTest.executor": "Run",
-    "Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor": "Run",
-    "Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor": "Run",
-    "Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor": "Run",
-    "Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor": "Run",
-    "Gradle.FixedExtensionControllerTest.executor": "Run",
-    "Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor": "Run",
-    "Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor": "Run",
-    "Gradle.FixedExtensionServiceTest.executor": "Run",
-    "Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor": "Run",
-    "Gradle.backend [test].executor": "Run",
-    "Gradle.extensionblocker.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle",
-    "onboarding.tips.debug.path": "C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1516544",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ExtensionBlockerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.C:/javaworks/workspace/springbootreact/extensionblocker.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionControllerTest.deleteCustomExtension_shouldReturnOk.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_개수초과시_예외발생.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_생성일기준_최신순_정렬.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_정상등록.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CustomExtensionServiceTest.커스텀확장자_중복시_예외발생.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FixedExtensionControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FixedExtensionControllerTest.toggleCheckedStatus_shouldReturnSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FixedExtensionControllerTest.고정_확장자_전체조회_성공.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FixedExtensionServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.backend [:backend:com.bokky.extensionblocker.ExtensionBlockerApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.backend [test].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.extensionblocker.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/build.gradle&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/javaworks/workspace/springbootreact/extensionblocker/backend/src/main/java/com/bokky/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1516544&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.bokky.extensionblocker" />
@@ -378,7 +393,23 @@
       <option name="project" value="LOCAL" />
       <updated>1753597965189</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리">
+      <option name="closed" value="true" />
+      <created>1753598514732</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1753598514732</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: 커스텀 확장자 등록 시 영문만 허용 및 오류 메시지 개선&#10;&#10;- 백엔드 정규식 수정: 영문 대소문자 모두 허용 (`^[a-zA-Z]+$`)&#10;- 프론트 오류 메시지 변경: &quot;확장자는 영문만 입력 가능합니다.&quot;&#10;- 커스텀 확장자 유효성 검사 실패 시 에러 메시지 구분 처리">
+      <option name="closed" value="true" />
+      <created>1753598519722</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1753598519722</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

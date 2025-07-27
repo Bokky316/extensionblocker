@@ -9,7 +9,7 @@ export const FixedList = () => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-2">고정 확장자</h2>
-      <ul className="space-y-1">
+      <div className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
         {fixedList.map((item) => (
           <li key={item.id} className="flex items-center space-x-2">
             <input
@@ -17,10 +17,10 @@ export const FixedList = () => {
               checked={!!item.checked}
               onChange={() => toggle(item.id)}
             />
-            <span>{item.name}</span>
+            <span className="text-sm">{item.name}</span>
           </li>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }

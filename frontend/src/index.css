@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reset + Global */
+html, body, #root {
+  height: 100%;
+  background-color: white;
+  color: #111827;
+  font-family: 'Pretendard', sans-serif;
+  margin: 0;
+  padding: 0;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  @media (min-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}

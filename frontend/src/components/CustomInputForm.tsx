@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { useCustomExtensions } from '@/hooks/useCustomExtensions'
+import { FormInput } from '@/components/common/FormInput'
+import { FormErrorMessage } from '@/components/common/FormErrorMessage'
 
 export const CustomInputForm = () => {
   const [input, setInput] = useState('')
   const [error, setError] = useState('')
-  const [touched, setTouched] = useState(false) // ✅ 최초 blur 이후 검증 여부
+  const [touched, setTouched] = useState(false)
 
   const fixedList = useAppSelector((state) => state.fixedExtensions.list ?? [])
   const customList = useAppSelector((state) => state.customExtensions.list ?? [])
@@ -30,7 +32,6 @@ export const CustomInputForm = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setInput(value)
-
     if (touched) {
       setError(validateInput(value))
     }
@@ -88,22 +89,21 @@ export const CustomInputForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 mt-4 w-60">
+    <h2 className="text-xl font-bold mb-2">커스텀 확장자</h2>
       <div className="flex gap-2">
-        <input
+        <FormInput
           value={input}
           onChange={handleInputChange}
           onBlur={handleBlur}
           placeholder="확장자 입력 (예: conf)"
-          className={`px-2 py-1 rounded w-full border ${
-            error ? 'border-red-500' : 'border-gray-300'
-          }`}
+          error={error}
           maxLength={20}
         />
         <button type="submit" className="bg-blue-500 text-white px-3 py-1 rounded">
-          추가
+          +
         </button>
       </div>
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      <FormErrorMessage message={error} />
     </form>
   )
 }
