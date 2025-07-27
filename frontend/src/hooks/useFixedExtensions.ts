@@ -3,30 +3,29 @@ import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import type { RootState } from '@/store'
 import {
-  fetchFixedExtensionsThunk,
-  toggleFixedExtensionThunk,
+  fetchFixedExtensions,
+  toggleFixed,
 } from '@/store/slices/fixedExtensionsSlice'
 
 export const useFixedExtensions = () => {
   const dispatch = useAppDispatch()
 
-  const fixedList = useAppSelector(
-    (state: RootState) => state.fixedExtensions?.list ?? []
-  )
-  const loading = useAppSelector(
-    (state: RootState) => state.fixedExtensions?.loading ?? false
-  )
-  const error = useAppSelector(
-    (state: RootState) => state.fixedExtensions?.error ?? null
-  )
+  const fixedList = useAppSelector((state: RootState) => state.fixedExtensions.list)
+  const loading = useAppSelector((state: RootState) => state.fixedExtensions.loading)
+  const error = useAppSelector((state: RootState) => state.fixedExtensions.error)
 
   const fetch = useCallback(() => {
-    dispatch(fetchFixedExtensionsThunk())
+    dispatch(fetchFixedExtensions())
   }, [dispatch])
 
+  // ✅ unwrap 사용해서 fulfilled 강제 기다리기
   const toggle = useCallback(
     async (id: number) => {
-      return await dispatch(toggleFixedExtensionThunk(id)).unwrap()
+      try {
+        await dispatch(toggleFixed(id)).unwrap()
+      } catch (err) {
+        console.error('토글 실패:', err)
+      }
     },
     [dispatch]
   )
