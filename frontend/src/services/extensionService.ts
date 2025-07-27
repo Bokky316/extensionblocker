@@ -1,32 +1,35 @@
-import { api } from './api'
+import axios from 'axios'
+import { api } from './api' // 사용 안 하면 제거 가능
 import type { ApiResponse } from './api'
 import type { FixedExtension, CustomExtension } from '../types'
 
-// 🔹 1. 고정 확장자 조회
+const API = import.meta.env.VITE_API_BASE_URL
+
+/** 고정 확장자 목록 조회 */
 export const getFixedExtensions = async (): Promise<FixedExtension[]> => {
-  const res = await api.get<ApiResponse<FixedExtension[]>>('/fixed')
+  const res = await axios.get(`${API}/api/fixed`)
   return res.data.data
 }
 
-// 🔹 2. 고정 확장자 체크 상태 변경
+/** 고정 확장자 체크 상태 토글 */
 export const toggleFixedExtension = async (id: number): Promise<FixedExtension> => {
-  const res = await api.put<ApiResponse<FixedExtension>>(`/fixed/${id}`)
+  const res = await axios.put(`${API}/api/fixed/${id}`)
   return res.data.data
 }
 
-// 🔹 3. 커스텀 확장자 조회
+/** 커스텀 확장자 목록 조회 */
 export const getCustomExtensions = async (): Promise<CustomExtension[]> => {
-  const res = await api.get<ApiResponse<CustomExtension[]>>('/custom')
+  const res = await axios.get(`${API}/api/extensions/custom`)
   return res.data.data
 }
 
-// 🔹 4. 커스텀 확장자 추가
+/** 커스텀 확장자 등록 */
 export const addCustomExtension = async (name: string): Promise<CustomExtension> => {
-  const res = await api.post<ApiResponse<CustomExtension>>('/custom', { name })
+  const res = await axios.post(`${API}/api/extensions/custom`, { name })
   return res.data.data
 }
 
-// 🔹 5. 커스텀 확장자 삭제
+/** 커스텀 확장자 삭제 */
 export const deleteCustomExtension = async (id: number): Promise<void> => {
-  await api.delete(`/custom/${id}`)
+  await axios.delete(`${API}/api/extensions/custom/${id}`)
 }

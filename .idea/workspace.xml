@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="feat: 프론트엔드 초기 세팅 및 API 연동 구조 구현&#10;&#10;- Vite + React + TypeScript 기반 프로젝트 생성&#10;- Tailwind CSS 설치 및 적용 (index.css 정리)&#10;- 개발 서버 포트 3000번으로 설정 (vite.config.ts)&#10;- axios 인스턴스(api.ts) 생성 및 환경변수 기반 baseURL 분리&#10;- 확장자 API 요청 함수 정의 (extensionService.ts)&#10;- 고정/커스텀 확장자 타입 정의 (types/index.ts)&#10;- 고정/커스텀 확장자 전용 커스텀 훅 구현 (useFixedExtensions, useCustomExtensions)">
-      <change afterPath="$PROJECT_DIR$/frontend/postcss.config.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/CustomInputForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/CustomList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/FixedList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useCustomExtensions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useFixedExtensions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useAppDispatch.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useAppSelector.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/customExtension.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.evn" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.evn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomInputForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomInputForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/services/extensionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/extensionService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

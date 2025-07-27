@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import { useCustomExtensions } from '../hooks/useCustomExtensions'
-import React from 'react'
+import { useAppDispatch } from '../hooks/useAppDispatch'
+import { createCustomExtension } from '../store/customExtension'
 
 export const CustomInputForm = () => {
-  const { add } = useCustomExtensions()
+  const dispatch = useAppDispatch()
   const [input, setInput] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!input.trim()) return
-    await add(input.trim())
+    const trimmed = input.trim()
+    if (!trimmed) return
+    dispatch(createCustomExtension(trimmed))
     setInput('')
   }
 
