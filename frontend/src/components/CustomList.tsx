@@ -1,30 +1,25 @@
-import { useFixedExtensions } from '@/hooks/useFixedExtensions'
+export const CustomList = () => {
+  const { customList, loading, removeExtension } = useCustomExtensions()
 
-export const FixedList = () => {
-  const { fixedList, loading, error, toggle } = useFixedExtensions()
-  const list = Array.isArray(fixedList) ? fixedList : []
+  const list = Array.isArray(customList) ? customList : []
 
   if (loading) return <p>로딩 중...</p>
-  if (error) return <p>에러 발생: {error}</p>
+  if (!Array.isArray(list)) return <p>확장자 데이터를 불러올 수 없습니다.</p>
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-2">고정 확장자</h2>
-      <p className="text-xs text-gray-400 mb-2">
-        총 {list?.length ?? 0}개
+    <div className="pt-3 pb-4">
+      <p className="text-xs text-gray-400 mb-1">
+        {list?.length ?? 0} / 200
       </p>
-      <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
+      <div className="flex flex-wrap gap-2">
         {(list ?? []).map((item) => (
-          <li key={item.id} className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              checked={!!item.checked}
-              onChange={() => toggle(item.id)}
-            />
-            <span className="text-sm">{item.name}</span>
-          </li>
+          <Pill
+            key={item.id}
+            label={item.name}
+            onRemove={() => removeExtension(item.id)}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   )
 }
