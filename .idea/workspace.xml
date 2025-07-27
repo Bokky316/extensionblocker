@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: map 접근 오류 방지" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix: map 접근 오류 방지">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,14 +247,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753455693112</updated>
-    </task>
-    <task id="LOCAL-00001" summary="FIRST COMMIT">
-      <option name="closed" value="true" />
-      <created>1753457073272</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1753457073272</updated>
     </task>
     <task id="LOCAL-00002" summary="feat: 커스텀 확장자 엔티티 및 레포지토리 구현&#10;&#10;- CustomExtension 엔티티 생성 (name, createdAt)&#10;- 중복 방지를 위한 name 유니크 제약&#10;- 생성일 자동 저장용 @CreationTimestamp 사용&#10;- CustomExtensionRepository 인터페이스 구현">
       <option name="closed" value="true" />
@@ -638,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753617558379</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fix: map 접근 오류 방지">
+      <option name="closed" value="true" />
+      <created>1753618006620</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1753618006621</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
