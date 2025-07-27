@@ -3,7 +3,7 @@ import type { FixedExtension, CustomExtension } from '@/types'
 
 /**
  * VITE_API_BASE_URL 예시: http://15.165.114.113/api
- * -> axios 요청에서는 /api 중복 제거 필요
+ * → axios 요청에서는 /api 중복 제거 필요
  */
 const API = import.meta.env.VITE_API_BASE_URL
 
