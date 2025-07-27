@@ -69,6 +69,3 @@ tasks.named('test') {
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-parameters"
 }
-
-// Kotlin DSL 충돌 방지용 (필요 없으면 생략 가능)
-tasks.register("prepareKotlinBuildScriptModel") { }

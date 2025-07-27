@@ -25,9 +25,18 @@ export const getCustomExtensions = async (): Promise<CustomExtension[]> => {
 
 /** 커스텀 확장자 등록 */
 export const addCustomExtension = async (name: string): Promise<CustomExtension> => {
-  const res = await axios.post(`${API}/api/extensions/custom`, { name })
+  const res = await axios.post(
+    `${API}/api/extensions/custom`,
+    { name },
+    {
+      headers: { 'Content-Type': 'application/json' },
+      responseType: 'json',
+      validateStatus: (status) => status < 500
+    }
+  )
   return res.data.data
 }
+
 
 /** 커스텀 확장자 삭제 */
 export const deleteCustomExtension = async (id: number): Promise<void> => {

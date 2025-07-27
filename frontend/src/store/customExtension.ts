@@ -26,9 +26,16 @@ export const fetchCustomExtensions = createAsyncThunk(
 )
 
 export const createCustomExtension = createAsyncThunk(
-  'customExtension/create',
-  async (name: string, thunkAPI) => {
-    return await addCustomExtension(name)
+  'customExtensions/create',
+  async (name: string, { rejectWithValue }) => {
+    try {
+      return await addCustomExtension(name)
+    } catch (err: any) {
+      const res = err?.response
+      const message = res?.data?.message || '등록 실패'
+      const code = res?.data?.code
+      return rejectWithValue({ code, message })
+    }
   }
 )
 
@@ -63,8 +70,8 @@ const customExtensionSlice = createSlice({
         state.list.unshift(action.payload)
       })
       .addCase(createCustomExtension.rejected, (state, action) => {
-        state.error = '추가 실패'
-      })
+          state.error = typeof action.payload === 'object' ? (action.payload as any).message : '등록 실패'
+        })
 
       .addCase(removeCustomExtension.fulfilled, (state, action) => {
         state.list = state.list.filter(item => item.id !== action.payload)
