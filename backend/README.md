@@ -45,7 +45,7 @@ cd extensionblocker/backend
 ./gradlew bootRun
 ````
 
-> Swagger 접속: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+> Swagger 접속: [http://15.165.114.113/swagger-ui/index.html](http://15.165.114.113/swagger-ui/index.html)
 
 ※ 기본 DB는 로컬 MariaDB 사용.
 ※ 테스트 실행 시에는 자동으로 H2(in-memory) DB로 전환됩니다.
