@@ -55,7 +55,7 @@ const customExtensionsSlice = createSlice({
         state.error = action.error.message ?? '에러 발생'
       })
       .addCase(createCustomExtension.fulfilled, (state, action) => {
-        state.list.unshift(action.payload)
+        state.list = [action.payload, ...state.list]
       })
       .addCase(removeCustomExtension.fulfilled, (state, action) => {
         state.list = state.list.filter((e) => e.id !== action.payload)

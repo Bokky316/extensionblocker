@@ -1,35 +1,46 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useCallback, useEffect } from 'react'
+import { useAppDispatch } from '@/hooks/useAppDispatch'
+import { useAppSelector } from '@/hooks/useAppSelector'
 import {
   fetchCustomExtensions,
   createCustomExtension,
   removeCustomExtension,
 } from '@/store/slices/customExtensionsSlice'
-import type { RootState, AppDispatch } from '@/store'
 
 export const useCustomExtensions = () => {
-  const dispatch = useDispatch<AppDispatch>()
-  const { list, loading, error } = useSelector(
-    (state: RootState) => state.customExtensions
-  )
+  const dispatch = useAppDispatch()
 
-  useEffect(() => {
+  const customList = useAppSelector((state) => state.customExtensions.list)
+  const loading = useAppSelector((state) => state.customExtensions.loading)
+  const error = useAppSelector((state) => state.customExtensions.error)
+
+  const fetch = useCallback(() => {
     dispatch(fetchCustomExtensions())
   }, [dispatch])
 
-  const addExtension = (name: string) => {
-    dispatch(createCustomExtension(name))
-  }
+  const addExtension = useCallback(
+    async (name: string) => {
+      return await dispatch(createCustomExtension(name)).unwrap()
+    },
+    [dispatch]
+  )
 
-  const deleteExtension = (id: number) => {
-    dispatch(removeCustomExtension(id))
-  }
+  const removeExtension = useCallback(
+    async (id: number) => {
+      return await dispatch(removeCustomExtension(id)).unwrap()
+    },
+    [dispatch]
+  )
+
+  useEffect(() => {
+    fetch()
+  }, [fetch])
 
   return {
-    customList: list,
+    customList,
     loading,
     error,
     addExtension,
-    deleteExtension,
+    removeExtension,
   }
 }

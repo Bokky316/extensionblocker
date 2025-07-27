@@ -3,9 +3,12 @@ package com.bokky.extensionblocker.service;
 import com.bokky.extensionblocker.dto.CustomExtensionRequest;
 import com.bokky.extensionblocker.dto.CustomExtensionResponse;
 import com.bokky.extensionblocker.entity.CustomExtension;
+import com.bokky.extensionblocker.entity.FixedExtensionType;
+import com.bokky.extensionblocker.entity.FixedExtension;
 import com.bokky.extensionblocker.exception.DuplicateExtensionException;
 import com.bokky.extensionblocker.exception.MaxExtensionLimitException;
 import com.bokky.extensionblocker.repository.CustomExtensionRepository;
+import com.bokky.extensionblocker.repository.FixedExtensionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,11 +27,13 @@ class CustomExtensionServiceTest {
 
     private CustomExtensionService customExtensionService;
     private CustomExtensionRepository customExtensionRepository;
+    private FixedExtensionRepository fixedExtensionRepository;
 
     @BeforeEach
     void setUp() {
         customExtensionRepository = mock(CustomExtensionRepository.class);
-        customExtensionService = new CustomExtensionService(customExtensionRepository);
+        fixedExtensionRepository = mock(FixedExtensionRepository.class);
+        customExtensionService = new CustomExtensionService(customExtensionRepository, fixedExtensionRepository);
     }
 
     @Test
@@ -38,6 +43,8 @@ class CustomExtensionServiceTest {
 
         when(customExtensionRepository.count()).thenReturn(100L);
         when(customExtensionRepository.existsByName("sh")).thenReturn(false);
+        when(fixedExtensionRepository.findByName(FixedExtensionType.SH)).thenReturn(Optional.empty());
+
         when(customExtensionRepository.save(any())).thenAnswer(invocation -> {
             CustomExtension ext = invocation.getArgument(0);
             return CustomExtension.builder()
@@ -55,10 +62,54 @@ class CustomExtensionServiceTest {
     }
 
     @Test
+    void 커스텀확장자_고정확장자_중복시_예외발생() {
+        // given
+        CustomExtensionRequest request = new CustomExtensionRequest("sh");
+
+        when(fixedExtensionRepository.findByName(FixedExtensionType.SH))
+                .thenReturn(Optional.of(FixedExtension.builder()
+                        .id(99L)
+                        .name(FixedExtensionType.SH)
+                        .checked(true)
+                        .build()));
+
+        // when & then
+        assertThrows(DuplicateExtensionException.class, () ->
+                customExtensionService.addCustomExtension(request));
+    }
+
+    @Test
+    void 커스텀확장자_고정Enum_미포함시_정상진행() {
+        // given
+        CustomExtensionRequest request = new CustomExtensionRequest("conf");
+
+        // FixedExtensionType.valueOf("conf".toUpperCase()) → IllegalArgumentException 발생 예상
+        // 따라서 fixedExtensionRepository는 호출되지 않음
+
+        when(customExtensionRepository.count()).thenReturn(100L);
+        when(customExtensionRepository.existsByName("conf")).thenReturn(false);
+        when(customExtensionRepository.save(any())).thenAnswer(invocation -> {
+            CustomExtension ext = invocation.getArgument(0);
+            return CustomExtension.builder()
+                    .id(2L)
+                    .name(ext.getName())
+                    .build();
+        });
+
+        // when
+        CustomExtensionResponse result = customExtensionService.addCustomExtension(request);
+
+        // then
+        assertEquals("conf", result.getName());
+        assertEquals(2L, result.getId());
+    }
+
+    @Test
     void 커스텀확장자_중복시_예외발생() {
         // given
         CustomExtensionRequest request = new CustomExtensionRequest("sh");
 
+        when(fixedExtensionRepository.findByName(FixedExtensionType.SH)).thenReturn(Optional.empty());
         when(customExtensionRepository.count()).thenReturn(100L);
         when(customExtensionRepository.existsByName("sh")).thenReturn(true);
 
