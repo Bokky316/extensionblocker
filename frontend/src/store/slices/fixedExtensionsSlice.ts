@@ -16,7 +16,7 @@ export const toggleFixedExtensionThunk = createAsyncThunk(
   'fixedExtensions/toggle',
   async (id: number): Promise<FixedExtension> => {
     const res = await toggleFixedExtension(id)
-    return res // ✅ FixedExtension 객체 반환
+    return res
   }
 )
 
@@ -52,7 +52,13 @@ const fixedExtensionsSlice = createSlice({
       })
       .addCase(toggleFixedExtensionThunk.fulfilled, (state, action) => {
         const updated = action.payload
-        const index = state.list.findIndex((item) => item.id === updated.id)
+
+        if (!updated || typeof updated.id !== 'number') return
+
+        const index = state.list.findIndex(
+          (item) => item?.id === updated.id
+        )
+
         if (index !== -1) {
           state.list[index] = updated
         }

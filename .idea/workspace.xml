@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="fix:" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="docs: README 3종 충돌 제거 및 배포 링크, 실행 정보 반영">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FixedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FixedList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/slices/fixedExtensionsSlice.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,14 +249,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1753455693112</updated>
-    </task>
-    <task id="LOCAL-00010" summary="feat: 고정/커스텀 확장자 상태 관리를 위한 Redux 구조 도입&#10;&#10;- fixedExtensions, customExtensions 상태 slice 생성&#10;- createAsyncThunk로 fetch 및 toggle, create, delete 처리 비동기 로직 구현&#10;- store에 각 slice reducer 등록&#10;- 커스텀 훅으로 useFixedExtensions, useCustomExtensions 추출하여 컴포넌트 연동">
-      <option name="closed" value="true" />
-      <created>1753586668432</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1753586668432</updated>
     </task>
     <task id="LOCAL-00011" summary="refactor: 커스텀 확장자 상태 훅 구조 개선 및 동작 반영 이슈 해결&#10;&#10;- useCustomExtensions 내부 구조 useAppSelector 기반으로 재구성&#10;- fetch/add/remove 액션 useCallback으로 정리&#10;- 등록 후 상태 반영 및 리렌더 문제 해결&#10;- CustomList, CustomInputForm 컴포넌트 구조 정리&#10;- FixedList와 구조 일관성 확보">
       <option name="closed" value="true" />
@@ -638,11 +634,18 @@
       <option name="project" value="LOCAL" />
       <updated>1753621395785</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="docs: README 3종 충돌 제거 및 배포 링크, 실행 정보 반영">
+      <option name="closed" value="true" />
+      <created>1753622405620</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1753622405620</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs: 프로젝트 구조 및 API 설명 포함 README.md 작성&#10;- 실행 방법, API 명세, 기술 스택 등 포함&#10;- Swagger 주소 및 공통 응답 예시 추가&#10;- 테스트 및 예외 처리 방식 요약&#10;- 프로젝트 디렉토리 구조 정리" />
     <MESSAGE value="docs: 테스트 환경 및 설계 고려사항 포함 README.md 수정&#10;&#10;- 테스트 시 H2 DB 자동 적용 설명 추가&#10;- 실행 환경에서 MariaDB, 테스트 환경에서 H2 구분 명시&#10;- 기타 사항 → 고려한 설계 사항으로 제목 명확화&#10;- gradlew test 실행 시 유의사항 안내&#10;- 백틱 오류 및 불명확한 표현 수정" />
     <MESSAGE value="feat: 프론트엔드 초기 세팅 및 API 연동 구조 구현&#10;&#10;- Vite + React + TypeScript 기반 프로젝트 생성&#10;- Tailwind CSS 설치 및 적용 (index.css 정리)&#10;- 개발 서버 포트 3000번으로 설정 (vite.config.ts)&#10;- axios 인스턴스(api.ts) 생성 및 환경변수 기반 baseURL 분리&#10;- 확장자 API 요청 함수 정의 (extensionService.ts)&#10;- 고정/커스텀 확장자 타입 정의 (types/index.ts)&#10;- 고정/커스텀 확장자 전용 커스텀 훅 구현 (useFixedExtensions, useCustomExtensions)" />
     <MESSAGE value="feat: 고정 및 커스텀 확장자 API 연동 기능 구현&#10;&#10;- extensionService.ts 생성 및 axios 기반 REST API 연동 구현&#10;- getFixedExtensions, toggleFixedExtension, getCustomExtensions 등 API 함수 정의&#10;- useFixedExtensions, useCustomExtensions 커스텀 훅 작성&#10;- 타입 정의 파일에 FixedExtension, CustomExtension 인터페이스 추가&#10;- VITE_API_BASE_URL 포함 중복 이슈 해결 및 환경변수 구조 정리" />
@@ -667,6 +670,7 @@
     <MESSAGE value="fix: api 경로" />
     <MESSAGE value="fix: fetchCustomExtensionsThunk에서 응답 구조 수정&#10;- getCustomExtensions().data 반환하도록 변경&#10;- Redux 상태에서 .map() 호출 시 TypeError 방지" />
     <MESSAGE value="fix:" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:" />
+    <MESSAGE value="docs: README 3종 충돌 제거 및 배포 링크, 실행 정보 반영" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: README 3종 충돌 제거 및 배포 링크, 실행 정보 반영" />
   </component>
 </project>

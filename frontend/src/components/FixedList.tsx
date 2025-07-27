@@ -17,7 +17,6 @@ export const FixedList = () => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-2">고정 확장자</h2>
-      <p className="text-xs text-gray-400 mb-2">총 {list.length}개</p>
       <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-0 pl-0 list-none">
         {(list ?? []).map((item) => (
           <li key={item.id} className="flex items-center space-x-2">
