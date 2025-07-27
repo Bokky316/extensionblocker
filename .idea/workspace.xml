@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="chore: tsconfig 경로 별칭 설정 및 모듈 경로 오류 해결&#10;&#10;- tsconfig.json에 baseUrl 및 paths 설정 추가 (@ -&gt; src/)&#10;- 기존 import 경로들을 @ 기반으로 통일&#10;- 타입 및 상태 관리 모듈 경로 오류 해결 (useAppSelector 등)&#10;- CustomList, FixedList 등 any/unknown 타입 명시적으로 해결" />
+    <list default="true" id="b7d3d1e5-9e8e-4b9d-8374-3eb8bc0c56c6" name="Changes" comment="Merge remote-tracking branch 'origin/master'" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -454,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753612316229</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1753612513184</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1753612513184</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -479,6 +487,7 @@
     <MESSAGE value="style: 확장자 리스트 UI 정렬 구조 통일" />
     <MESSAGE value="배포세팅" />
     <MESSAGE value="chore: tsconfig 경로 별칭 설정 및 모듈 경로 오류 해결&#10;&#10;- tsconfig.json에 baseUrl 및 paths 설정 추가 (@ -&gt; src/)&#10;- 기존 import 경로들을 @ 기반으로 통일&#10;- 타입 및 상태 관리 모듈 경로 오류 해결 (useAppSelector 등)&#10;- CustomList, FixedList 등 any/unknown 타입 명시적으로 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: tsconfig 경로 별칭 설정 및 모듈 경로 오류 해결&#10;&#10;- tsconfig.json에 baseUrl 및 paths 설정 추가 (@ -&gt; src/)&#10;- 기존 import 경로들을 @ 기반으로 통일&#10;- 타입 및 상태 관리 모듈 경로 오류 해결 (useAppSelector 등)&#10;- CustomList, FixedList 등 any/unknown 타입 명시적으로 해결" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
   </component>
 </project>
