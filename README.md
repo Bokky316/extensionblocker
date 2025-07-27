@@ -92,7 +92,11 @@ npm run dev
 * `.env`에 아래와 같이 백엔드 주소 설정 필요:
 
 ```
+<<<<<<< HEAD
 VITE_API_BASE_URL=http://15.165.114.113
+=======
+VITE_API_BASE_URL=http://localhost:8080
+>>>>>>> origin/master
 ```
 
 ---
