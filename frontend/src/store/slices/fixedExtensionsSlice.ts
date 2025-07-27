@@ -15,7 +15,8 @@ export const fetchFixedExtensionsThunk = createAsyncThunk(
 export const toggleFixedExtensionThunk = createAsyncThunk(
   'fixedExtensions/toggle',
   async (id: number): Promise<FixedExtension> => {
-    return await toggleFixedExtension(id)
+    const res = await toggleFixedExtension(id)
+    return res // ✅ FixedExtension 객체 반환
   }
 )
 
