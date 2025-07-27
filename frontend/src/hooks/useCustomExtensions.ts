@@ -11,9 +11,15 @@ import {
 export const useCustomExtensions = () => {
   const dispatch = useAppDispatch()
 
-  const customList = useAppSelector((state: RootState) => state.customExtensions.list ?? [])
-  const loading = useAppSelector((state: RootState) => state.customExtensions.loading)
-  const error = useAppSelector((state: RootState) => state.customExtensions.error)
+  const customList = useAppSelector(
+    (state: RootState) => state.customExtensions?.list ?? []
+  )
+  const loading = useAppSelector(
+    (state: RootState) => state.customExtensions?.loading ?? false
+  )
+  const error = useAppSelector(
+    (state: RootState) => state.customExtensions?.error ?? null
+  )
 
   const fetch = useCallback(() => {
     dispatch(fetchCustomExtensionsThunk())

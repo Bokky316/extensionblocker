@@ -1,25 +1,39 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useAppDispatch } from '@/hooks/useAppDispatch'
+import { useAppSelector } from '@/hooks/useAppSelector'
+import type { RootState } from '@/store'
 import {
   fetchFixedExtensionsThunk,
   toggleFixedExtensionThunk,
 } from '@/store/slices/fixedExtensionsSlice'
-import type { RootState, AppDispatch } from '@/store'
 
 export const useFixedExtensions = () => {
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useAppDispatch()
 
-  const fixedList = useSelector((state: RootState) => state.fixedExtensions.list ?? [])
-  const loading = useSelector((state: RootState) => state.fixedExtensions.loading)
-  const error = useSelector((state: RootState) => state.fixedExtensions.error)
+  const fixedList = useAppSelector(
+    (state: RootState) => state.fixedExtensions?.list ?? []
+  )
+  const loading = useAppSelector(
+    (state: RootState) => state.fixedExtensions?.loading ?? false
+  )
+  const error = useAppSelector(
+    (state: RootState) => state.fixedExtensions?.error ?? null
+  )
 
-  useEffect(() => {
+  const fetch = useCallback(() => {
     dispatch(fetchFixedExtensionsThunk())
   }, [dispatch])
 
-  const toggle = (id: number) => {
-    dispatch(toggleFixedExtensionThunk(id))
-  }
+  const toggle = useCallback(
+    async (id: number) => {
+      return await dispatch(toggleFixedExtensionThunk(id)).unwrap()
+    },
+    [dispatch]
+  )
+
+  useEffect(() => {
+    fetch()
+  }, [fetch])
 
   return {
     fixedList,
